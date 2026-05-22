@@ -12,7 +12,9 @@ public class Sandwich implements Product {
         this.toasted = toasted;
         this.toppings = new ArrayList<>();
     }
-
+    public void addSandwich(Topping topping){
+        toppings.add(topping);
+    }
 
     @Override
     public double getTotal() {
@@ -39,8 +41,27 @@ public class Sandwich implements Product {
                     }
                 }
             }
+            if (topping.isExtra()) {
+                if (topping.getCategory() == ToppingCategory.CHEESE) {
+                    switch (size) {
+                        case FOUR -> total += .30;
+                        case EIGHT -> total += .60;
+                        case TWELVE -> total += .90;
+                    }
+                }
+                if (topping.getCategory() == ToppingCategory.MEAT) {
+                    switch (size) {
+                        case FOUR -> total += .50;
+                        case EIGHT -> total += 1.00;
+                        case TWELVE -> total += 1.50;
+                    }
+                }
+            }
 
         }
         return total;
     }
 }
+
+
+
