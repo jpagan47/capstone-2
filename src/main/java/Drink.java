@@ -7,6 +7,13 @@ public class Drink implements Product{
 
     @Override
     public double getTotal() {
-        return 0;
+        double total = 0;
+        switch (drinkSize){
+            case SMALL -> total= 2.00;
+            case MEDIUM -> total = 2.50;
+            case LARGE -> total = 3.00;
+
+        }
+        return total;
     }
 }

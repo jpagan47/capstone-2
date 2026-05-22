@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Sandwich implements Product{
     private SandwichSize size;
     private BreadType breadType;
-    private Boolean toasted;
+    private boolean toasted;
     private ArrayList<Topping> toppings ;
 
     public Sandwich(SandwichSize size,BreadType breadType, Boolean toasted) {
@@ -16,6 +16,13 @@ public class Sandwich implements Product{
 
     @Override
     public double getTotal() {
-        return 0;
+        double total = 0;
+        switch (size){
+            case FOUR -> total = 5.50;
+            case EIGHT -> total = 7.00;
+            case TWELVE -> total = 8.50;
+
+        }
+        return total;
     }
 }
