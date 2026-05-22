@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class Sandwich implements Product{
+public class Sandwich implements Product {
     private SandwichSize size;
     private BreadType breadType;
     private boolean toasted;
-    private ArrayList<Topping> toppings ;
+    private ArrayList<Topping> toppings;
 
-    public Sandwich(SandwichSize size,BreadType breadType, Boolean toasted) {
+    public Sandwich(SandwichSize size, BreadType breadType, boolean toasted) {
         this.size = size;
         this.breadType = breadType;
         this.toasted = toasted;
@@ -17,7 +17,7 @@ public class Sandwich implements Product{
     @Override
     public double getTotal() {
         double total = 0;
-        switch (size){
+        switch (size) {
             case FOUR -> total = 5.50;
             case EIGHT -> total = 7.00;
             case TWELVE -> total = 8.50;
