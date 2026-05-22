@@ -1,10 +1,7 @@
-public class Chips extends Product{
-    public Chips(String name) {
-        super(name);
-    }
+public class Chips implements Product{
 
     @Override
-    public double calculatePrice() {
+    public double getTotal() {
         return 0;
     }
 }

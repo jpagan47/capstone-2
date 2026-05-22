@@ -1,10 +1,8 @@
-public class Drink extends Product{
-    public Drink(String name) {
-        super(name);
-    }
+public class Drink implements Product{
+
 
     @Override
-    public double calculatePrice() {
+    public double getTotal() {
         return 0;
     }
 }
