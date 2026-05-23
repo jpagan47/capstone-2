@@ -102,35 +102,37 @@ public class UserInterface {
                             """);
                     int toastedInput = Integer.parseInt(myScanner.nextLine());
                     boolean isToasted = toastedInput == 1;
-                    //Assigning values to my Sandwich, using all the user inputs
+
                     Sandwich sandwich = new Sandwich(sandwichSize, selectedBread, isToasted);
-                    promtForTopping(sandwich,"Steak",ToppingCategory.MEAT,true);
-                    promtForTopping(sandwich,"Ham",ToppingCategory.MEAT,true);
-                    promtForTopping(sandwich,"Salami",ToppingCategory.MEAT,true);
-                    promtForTopping(sandwich,"Roast Beef",ToppingCategory.MEAT,true);
-                    promtForTopping(sandwich,"Chicken",ToppingCategory.MEAT,true);
-                    promtForTopping(sandwich,"Bacon",ToppingCategory.MEAT,true);
-                    promtForTopping(sandwich,"American Cheese",ToppingCategory.CHEESE,true);
-                    promtForTopping(sandwich,"Provolone Cheese",ToppingCategory.CHEESE,true);
-                    promtForTopping(sandwich,"Cheddar Cheese",ToppingCategory.CHEESE,true);
-                    promtForTopping(sandwich,"Swiss Cheese",ToppingCategory.CHEESE,true);
-                    promtForTopping(sandwich,"Lettuce",ToppingCategory.REGULAR,false);
-                    promtForTopping(sandwich,"Peppers",ToppingCategory.REGULAR,false);
-                    promtForTopping(sandwich,"Onions",ToppingCategory.REGULAR,false);
-                    promtForTopping(sandwich,"Tomatoes",ToppingCategory.REGULAR,false);
-                    promtForTopping(sandwich,"Jalapenos",ToppingCategory.REGULAR,false);
-                    promtForTopping(sandwich,"Cucumbers",ToppingCategory.REGULAR,false);
-                    promtForTopping(sandwich,"Pickles",ToppingCategory.REGULAR,false);
-                    promtForTopping(sandwich,"Guacamole",ToppingCategory.REGULAR,false);
-                    promtForTopping(sandwich,"Mushrooms",ToppingCategory.REGULAR,false);
-                    promtForTopping(sandwich,"Mayo",ToppingCategory.SAUCE,false);
-                    promtForTopping(sandwich,"Mustard",ToppingCategory.SAUCE,false);
-                    promtForTopping(sandwich,"Ketchup",ToppingCategory.SAUCE,false);
-                    promtForTopping(sandwich,"Ranch",ToppingCategory.SAUCE,false);
-                    promtForTopping(sandwich,"Thousand Islands",ToppingCategory.SAUCE,false);
-                    promtForTopping(sandwich,"Vinaigrette",ToppingCategory.SAUCE,false);
-                    promtForTopping(sandwich,"au jus on the side",ToppingCategory.SAUCE,false);
-                    promtForTopping(sandwich,"Sauce on the side",ToppingCategory.SAUCE,false);
+                    promptForTopping(sandwich, "Steak", ToppingCategory.MEAT, true);
+                    promptForTopping(sandwich, "Ham", ToppingCategory.MEAT, true);
+                    promptForTopping(sandwich, "Salami", ToppingCategory.MEAT, true);
+                    promptForTopping(sandwich, "Roast Beef", ToppingCategory.MEAT, true);
+                    promptForTopping(sandwich, "Chicken", ToppingCategory.MEAT, true);
+                    promptForTopping(sandwich, "Bacon", ToppingCategory.MEAT, true);
+                    promptForTopping(sandwich, "American Cheese", ToppingCategory.CHEESE, true);
+                    promptForTopping(sandwich, "Provolone Cheese", ToppingCategory.CHEESE, true);
+                    promptForTopping(sandwich, "Cheddar Cheese", ToppingCategory.CHEESE, true);
+                    promptForTopping(sandwich, "Swiss Cheese", ToppingCategory.CHEESE, true);
+                    promptForTopping(sandwich, "Lettuce", ToppingCategory.REGULAR, false);
+                    promptForTopping(sandwich, "Peppers", ToppingCategory.REGULAR, false);
+                    promptForTopping(sandwich, "Onions", ToppingCategory.REGULAR, false);
+                    promptForTopping(sandwich, "Tomatoes", ToppingCategory.REGULAR, false);
+                    promptForTopping(sandwich, "Jalapenos", ToppingCategory.REGULAR, false);
+                    promptForTopping(sandwich, "Cucumbers", ToppingCategory.REGULAR, false);
+                    promptForTopping(sandwich, "Pickles", ToppingCategory.REGULAR, false);
+                    promptForTopping(sandwich, "Guacamole", ToppingCategory.REGULAR, false);
+                    promptForTopping(sandwich, "Mushrooms", ToppingCategory.REGULAR, false);
+                    promptForTopping(sandwich, "Mayo", ToppingCategory.SAUCE, false);
+                    promptForTopping(sandwich, "Mustard", ToppingCategory.SAUCE, false);
+                    promptForTopping(sandwich, "Ketchup", ToppingCategory.SAUCE, false);
+                    promptForTopping(sandwich, "Ranch", ToppingCategory.SAUCE, false);
+                    promptForTopping(sandwich, "Thousand Islands", ToppingCategory.SAUCE, false);
+                    promptForTopping(sandwich, "Vinaigrette", ToppingCategory.SAUCE, false);
+                    promptForTopping(sandwich, "au jus on the side", ToppingCategory.SAUCE, false);
+                    promptForTopping(sandwich, "Sauce on the side", ToppingCategory.SAUCE, false);
+
+                    //Assigning values to my Sandwich, using all the user inputs
                     currentOrder.addSandwich(sandwich);
                     System.out.println("\nSandwich added to your order!\n");
                     break;
@@ -152,12 +154,24 @@ public class UserInterface {
         }
 
     }
+
     //Making a method to prompt the user topping by topping to reduce chance of user error
-    private void promtForTopping(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium ){
+    private void promptForTopping(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium) {
         System.out.println(" Would you like " + toppingName + " ? (Y)es / (N)o");
         String userInput = myScanner.nextLine();
-        if(userInput.equalsIgnoreCase("y")){
-            sandwich.addTopping(new Topping(toppingName,category,isPremium,false));
+        if (userInput.equalsIgnoreCase("y")) {
+            sandwich.addTopping(new Topping(toppingName, category, isPremium, false));
+            if (isPremium) {
+                promptForExtraToppings(sandwich, toppingName, category, isPremium);
+            }
+        }
+    }
+
+    private void promptForExtraToppings(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium) {
+        System.out.println("Would you like Extra " + toppingName + " ? (Y)es / (N)o ");
+        String userInput = myScanner.nextLine();
+        if (userInput.equalsIgnoreCase("y")) {
+            sandwich.addTopping(new Topping(toppingName, category, isPremium, true));
         }
     }
 }
