@@ -12,7 +12,7 @@ public class Sandwich implements Product {
         this.toasted = toasted;
         this.toppings = new ArrayList<>();
     }
-    public void addSandwich(Topping topping){
+    public void addTopping(Topping topping){
         toppings.add(topping);
     }
 
