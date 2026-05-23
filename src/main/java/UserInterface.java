@@ -168,7 +168,9 @@ public class UserInterface {
                     System.out.println("\nDrink was added to your Order!");
                     break;
                 case 3:
-
+                    Chips chips = new Chips();
+                    currentOrder.addChips(chips);
+                    System.out.println("Chips was added to your Order!");
                     break;
                 case 4:
 
