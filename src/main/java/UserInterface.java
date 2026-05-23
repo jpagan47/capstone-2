@@ -103,7 +103,9 @@ public class UserInterface {
                     int toastedInput = Integer.parseInt(myScanner.nextLine());
                     boolean isToasted = toastedInput == 1;
 
+                    //Assigning values to my Sandwich, using all the user inputs
                     Sandwich sandwich = new Sandwich(sandwichSize, selectedBread, isToasted);
+
                     promptForTopping(sandwich, "Steak", ToppingCategory.MEAT, true);
                     promptForTopping(sandwich, "Ham", ToppingCategory.MEAT, true);
                     promptForTopping(sandwich, "Salami", ToppingCategory.MEAT, true);
@@ -132,12 +134,38 @@ public class UserInterface {
                     promptForTopping(sandwich, "au jus on the side", ToppingCategory.SAUCE, false);
                     promptForTopping(sandwich, "Sauce on the side", ToppingCategory.SAUCE, false);
 
-                    //Assigning values to my Sandwich, using all the user inputs
+
                     currentOrder.addSandwich(sandwich);
                     System.out.println("\nSandwich added to your order!\n");
                     break;
                 case 2:
-
+                    System.out.println("""
+                            What size drink would you like ?
+                            1) Small
+                            2) Medium
+                            3) Large
+                            """);
+                    int drinkSizeUserSelection = Integer.parseInt(myScanner.nextLine());
+                    DrinkSize drinkSize = null;
+                    switch (drinkSizeUserSelection) {
+                        case 1:
+                            drinkSize = DrinkSize.SMALL;
+                            break;
+                        case 2:
+                            drinkSize = DrinkSize.MEDIUM;
+                            break;
+                        case 3:
+                            drinkSize = DrinkSize.LARGE;
+                            break;
+                        case 4:
+                            //Return back to previous menu
+                            break;
+                        default:
+                    }
+                    System.err.println("Invalid selection please try again!");
+                    Drink drink = new Drink(drinkSize);
+                    currentOrder.addDrink(drink);
+                    System.out.println("\nDrink was added to your Order!");
                     break;
                 case 3:
 
