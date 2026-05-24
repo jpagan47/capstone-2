@@ -1,7 +1,7 @@
 public class Chips implements Product{
     @Override
     public String toString() {
-        return "Chips";
+        return "-A bag of Chips";
     }
 
     @Override

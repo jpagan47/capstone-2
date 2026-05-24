@@ -22,7 +22,7 @@ public class ReceiptManager {
 
     private String generateFileName() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
-        return "receipts/"+ LocalDateTime.now().format(formatter)+ ".txt";
+        return "src/receipts/" + LocalDateTime.now().format(formatter)+ ".txt";
     }
 
 }

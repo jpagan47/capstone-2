@@ -8,12 +8,15 @@ public class Sandwich implements Product {
 
     @Override
     public String toString() {
-        return "Sandwich{" +
-                "size=" + size +
-                ", breadType=" + breadType +
-                ", toasted=" + toasted +
-                ", toppings=" + toppings +
-                '}';
+        String sanwichInfo = "Sandwich\n" +
+                "Size: " + size +" inches" +"\n" +
+                "Bread Type: " + breadType + "\n" +
+                "Toasted: " + toasted + "\n";
+        sanwichInfo += "\n Toppings: \n";
+        for (Topping topping : toppings) {
+            sanwichInfo += "-" + topping.getName() + "\n";
+        }
+        return sanwichInfo;
     }
 
     public Sandwich(SandwichSize size, BreadType breadType, boolean toasted) {
@@ -22,7 +25,8 @@ public class Sandwich implements Product {
         this.toasted = toasted;
         this.toppings = new ArrayList<>();
     }
-    public void addTopping(Topping topping){
+
+    public void addTopping(Topping topping) {
         toppings.add(topping);
     }
 
