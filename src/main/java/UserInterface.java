@@ -174,8 +174,9 @@ public class UserInterface {
                     break;
                 case 4:
                     //Verifying that the order has at least one item in it
-                    if(currentOrder.getTotal() == 0 ){
-                        System.err.println("You must add at least one item from our menu!");;
+                    if (currentOrder.getTotal() == 0) {
+                        System.err.println("You must add at least one item from our menu!");
+                        ;
                     }
                     //Displaying the receipt before saving it to a new .txt file and then deleting it
                     System.out.println(currentOrder.getOrderSummary());
@@ -202,9 +203,9 @@ public class UserInterface {
 
     //Making a method to prompt the user topping by topping to reduce chance of user error
     private void promptForTopping(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium) {
-        System.out.println(" Would you like " + toppingName + " ? (Y)es / (N)o");
-        String userInput = myScanner.nextLine();
-        if (userInput.equalsIgnoreCase("y")) {
+        System.out.println(" Would you like " + toppingName + " ? (1) Yes : (2) No");
+        int userInput = Integer.parseInt(myScanner.nextLine());
+        if (userInput == 1) {
             sandwich.addTopping(new Topping(toppingName, category, isPremium, false));
             if (isPremium) {
                 promptForExtraToppings(sandwich, toppingName, category, isPremium);
@@ -213,9 +214,9 @@ public class UserInterface {
     }
 
     private void promptForExtraToppings(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium) {
-        System.out.println("Would you like Extra " + toppingName + " ? (Y)es / (N)o ");
-        String userInput = myScanner.nextLine();
-        if (userInput.equalsIgnoreCase("y")) {
+        System.out.println("Would you like Extra " + toppingName + " ? Yes : (2) No ");
+        int userInput = Integer.parseInt(myScanner.nextLine());
+        if (userInput == 1) {
             String extraToppingName = "Extra " + toppingName;
             sandwich.addTopping(new Topping(extraToppingName, category, isPremium, true));
         }
