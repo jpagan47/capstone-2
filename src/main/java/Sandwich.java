@@ -6,6 +6,16 @@ public class Sandwich implements Product {
     private boolean toasted;
     private ArrayList<Topping> toppings;
 
+    @Override
+    public String toString() {
+        return "Sandwich{" +
+                "size=" + size +
+                ", breadType=" + breadType +
+                ", toasted=" + toasted +
+                ", toppings=" + toppings +
+                '}';
+    }
+
     public Sandwich(SandwichSize size, BreadType breadType, boolean toasted) {
         this.size = size;
         this.breadType = breadType;

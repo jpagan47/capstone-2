@@ -5,6 +5,8 @@ public class Order {
     private ArrayList<Drink> drinks;
     private ArrayList<Chips> chips;
 
+
+
     public Order() {
         this.sandwiches = new ArrayList<>();
         this.drinks = new ArrayList<>();
@@ -25,6 +27,20 @@ public class Order {
 
         return total;
     }
+    public String getOrderSummary(){
+        String summary = "===Receipt===\n";
+        for (Sandwich sandwich: sandwiches){
+            summary += sandwich +"\n";
+        }
+        for(Drink drink: drinks){
+            summary+= drink + "\n";
+        }
+        for(Chips chip : chips){
+            summary+= chip + "\n";
+        }
+        summary += "\nTOTAL: $" + getTotal();
+        return summary;
+    }
 
     public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
@@ -38,4 +54,15 @@ public class Order {
         chips.add(chip);
     }
 
+    public ArrayList<Sandwich> getSandwiches() {
+        return sandwiches;
+    }
+
+    public ArrayList<Drink> getDrinks() {
+        return drinks;
+    }
+
+    public ArrayList<Chips> getChips() {
+        return chips;
+    }
 }

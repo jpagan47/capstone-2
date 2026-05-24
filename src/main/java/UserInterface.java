@@ -161,24 +161,26 @@ public class UserInterface {
                             //Return back to previous menu
                             break;
                         default:
+                            System.err.println("Invalid selection please try again!");
                     }
-                    System.err.println("Invalid selection please try again!");
                     Drink drink = new Drink(drinkSize);
                     currentOrder.addDrink(drink);
-                    System.out.println("\nDrink was added to your Order!");
+                    System.out.println("\nDrink was added to your Order!\n");
                     break;
                 case 3:
                     Chips chips = new Chips();
                     currentOrder.addChips(chips);
-                    System.out.println("Chips was added to your Order!");
+                    System.out.println("Chips was added to your Order!\n");
                     break;
                 case 4:
-
+                    System.out.println(currentOrder.getOrderSummary());
                     break;
                 case 5:
                     currentOrder = null;
                     running = false;
                     break;
+                default:
+                    System.err.println("Invalid Selection please try again");
             }
 
         }
@@ -201,7 +203,8 @@ public class UserInterface {
         System.out.println("Would you like Extra " + toppingName + " ? (Y)es / (N)o ");
         String userInput = myScanner.nextLine();
         if (userInput.equalsIgnoreCase("y")) {
-            sandwich.addTopping(new Topping(toppingName, category, isPremium, true));
+            String extraToppingName = "Extra"+ toppingName;
+            sandwich.addTopping(new Topping(extraToppingName, category, isPremium, true));
         }
     }
 }
