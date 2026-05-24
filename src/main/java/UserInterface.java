@@ -190,7 +190,7 @@ public class UserInterface {
                             receiptManager.saveReceipt(currentOrder);
                             break;
                         case 2:
-                            System.out.println("Returning to Main Menu.....");
+                            System.out.println("\nReturning to Main Menu.....\n");
                             break;
                     }
                     //Exiting the order and making a new empty order
