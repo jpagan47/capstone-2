@@ -38,8 +38,10 @@ public class Order {
         for(Chips chip : chips){
             summary+= chip + "\n";
         }
-        summary += "\nTOTAL: $" + getTotal() + "\n";
+        //Researched that String.format  is like doing System.out.println(f%.2);, all I'm doing is rounding to 2 decimal places
+        summary += String.format("\nTOTAL: $" + getTotal() + "\n");
         return summary;
+
     }
 
     public void addSandwich(Sandwich sandwich) {
