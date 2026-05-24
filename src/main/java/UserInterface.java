@@ -173,7 +173,12 @@ public class UserInterface {
                     System.out.println("Chips was added to your Order!\n");
                     break;
                 case 4:
-                    System.out.println(currentOrder.getOrderSummary());
+                    //Saving my order to my receipt
+                    ReceiptManager receiptManager = new ReceiptManager();
+                    receiptManager.saveReceipt(currentOrder);
+                    //Exiting the order and clearing it, order Complete
+                    currentOrder = null;
+                    running = false;
                     break;
                 case 5:
                     currentOrder = null;
@@ -203,7 +208,7 @@ public class UserInterface {
         System.out.println("Would you like Extra " + toppingName + " ? (Y)es / (N)o ");
         String userInput = myScanner.nextLine();
         if (userInput.equalsIgnoreCase("y")) {
-            String extraToppingName = "Extra"+ toppingName;
+            String extraToppingName = "Extra" + toppingName;
             sandwich.addTopping(new Topping(extraToppingName, category, isPremium, true));
         }
     }

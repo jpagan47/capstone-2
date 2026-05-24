@@ -4,6 +4,16 @@ public class Topping {
     private boolean premium;
     private boolean extra;
 
+    @Override
+    public String toString() {
+        return "Topping{" +
+                "name='" + name + '\'' +
+                ", category=" + category +
+                ", premium=" + premium +
+                ", extra=" + extra +
+                '}';
+    }
+
     public Topping(String name, ToppingCategory category, boolean premium, boolean extra) {
         this.name = name;
         this.category = category;

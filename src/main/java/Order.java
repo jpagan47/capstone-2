@@ -28,7 +28,7 @@ public class Order {
         return total;
     }
     public String getOrderSummary(){
-        String summary = "===Receipt===\n";
+        String summary = "\n===Receipt===\n";
         for (Sandwich sandwich: sandwiches){
             summary += sandwich +"\n";
         }
@@ -38,7 +38,7 @@ public class Order {
         for(Chips chip : chips){
             summary+= chip + "\n";
         }
-        summary += "\nTOTAL: $" + getTotal();
+        summary += "\nTOTAL: $" + getTotal() + "\n";
         return summary;
     }
 

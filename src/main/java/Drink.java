@@ -6,6 +6,13 @@ public class Drink implements Product{
     }
 
     @Override
+    public String toString() {
+        return "Drink{" +
+                "drinkSize=" + drinkSize +
+                '}';
+    }
+
+    @Override
     public double getTotal() {
         double total = 0;
         switch (drinkSize){
