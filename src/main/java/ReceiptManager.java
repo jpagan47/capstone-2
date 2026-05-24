@@ -14,7 +14,7 @@ public class ReceiptManager {
             bufferedWriter.write(order.getOrderSummary());
             bufferedWriter.close();
 
-            System.out.println("Receipt saved: " + filename);
+            System.out.println("\nReceipt saved: " + filename + "\n");
         }catch(IOException e){
             System.err.println("Error saving receipt");
         }

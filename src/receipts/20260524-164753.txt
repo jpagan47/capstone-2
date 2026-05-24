@@ -1,0 +1,5 @@
+
+===Receipt===
+-A DrinkSize: MEDIUM
+
+TOTAL: $2.5

@@ -1,0 +1,34 @@
+
+===Receipt===
+Sandwich
+Size: FOUR inches
+Bread Type: WHITE
+Toasted: true
+
+ Toppings: 
+-Roast Beef
+-ExtraRoast Beef
+-Chicken
+-ExtraChicken
+-Bacon
+-ExtraBacon
+-American Cheese
+-ExtraAmerican Cheese
+-Provolone Cheese
+-ExtraProvolone Cheese
+-Cheddar Cheese
+-Guacamole
+-Mushrooms
+-Mayo
+-Mustard
+-Ketchup
+-Ranch
+-Thousand Islands
+-Vinaigrette
+-au jus on the side
+-Sauce on the side
+
+-A DrinkSize: MEDIUM
+-A bag of Chips
+
+TOTAL: $21.35
