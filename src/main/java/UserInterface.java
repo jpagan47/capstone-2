@@ -176,15 +176,23 @@ public class UserInterface {
                     //Verifying that the order has at least one item in it
                     if (currentOrder.getTotal() == 0) {
                         System.err.println("You must add at least one item from our menu!");
-                        ;
+                        break;
                     }
                     //Displaying the receipt before saving it to a new .txt file and then deleting it
                     System.out.println(currentOrder.getOrderSummary());
-
-                    //Saving my order to my receipt
-                    ReceiptManager receiptManager = new ReceiptManager();
-                    receiptManager.saveReceipt(currentOrder);
-
+                    System.out.println("1) Yes, complete my order");
+                    System.out.println("2) No, cancel it ");
+                    int confirm = Integer.parseInt(myScanner.nextLine()) ;
+                    switch (confirm){
+                        case 1:
+                            //Saving my order to my receipt
+                            ReceiptManager receiptManager = new ReceiptManager();
+                            receiptManager.saveReceipt(currentOrder);
+                            break;
+                        case 2:
+                            System.out.println("Returning to Main Menu.....");
+                            break;
+                    }
                     //Exiting the order and making a new empty order
                     currentOrder = new Order();
                     running = false;
