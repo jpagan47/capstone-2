@@ -6,9 +6,6 @@ public class Order {
     private final ArrayList<Chips> chips;
 
 
-
-
-
     public Order() {
         this.sandwiches = new ArrayList<>();
         this.drinks = new ArrayList<>();
@@ -29,19 +26,20 @@ public class Order {
 
         return total;
     }
-    public String getOrderSummary(){
+
+    public String getOrderSummary() {
         String summary = "\n===Receipt===\n";
-        for (Sandwich sandwich: sandwiches){
-            summary += sandwich +"\n";
+        for (Sandwich sandwich : sandwiches) {
+            summary += sandwich + "\n";
         }
-        for(Drink drink: drinks){
-            summary+= drink + "\n";
+        for (Drink drink : drinks) {
+            summary += drink + "\n";
         }
-        for(Chips chip : chips){
-            summary+= chip + "\n";
+        for (Chips chip : chips) {
+            summary += chip + "\n";
         }
         //Researched that String.format is like doing System.out.println(f%.2);, all I'm doing is rounding to 2 decimal places
-        summary += String.format("\nTOTAL: $%.2f\n" , getTotal());
+        summary += String.format("\nTOTAL: $%.2f\n", getTotal());
         return summary;
 
     }
