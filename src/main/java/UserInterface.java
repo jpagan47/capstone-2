@@ -16,8 +16,11 @@ public class UserInterface {
         boolean running = true;
         while (running) {
             System.out.println("""
-                    1) New Order
-                    0) Exit
+                    𖡼.𖤣𖥧𖡼.𖤣𖥧    Jose's Deli    𖡼.𖤣𖥧𖡼.𖤣𖥧
+                               🥤🥗🍔🍗🍟🥓
+                                1) New Order
+                                  0) Exit
+                                  🥐🍰🧺☕️
                     """);
             try {
                 int userInput = Integer.parseInt(myScanner.nextLine());
@@ -46,11 +49,11 @@ public class UserInterface {
         boolean running = true;
         while (running) {
             System.out.println("""
-                    1) Add Sandwich
-                    2) Add Drink
-                    3) Add Chips
-                    4) Checkout
-                    5) Cancel Order
+                    1) Add Sandwich 🍞
+                    2) Add Drink 🍷
+                    3) Add Chips 🍟
+                    4) Checkout 📠
+                    5) Cancel Order ❌
                     """);
             try {
                 int userInput1 = Integer.parseInt(myScanner.nextLine());
