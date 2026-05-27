@@ -30,7 +30,7 @@ Toasted: true
 -Peppers
 -Onions
 -Tomatoes
--Jalapenos
+-Jalapeños
 -Cucumbers
 -Pickles
 -Guacamole

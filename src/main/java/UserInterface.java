@@ -49,128 +49,13 @@ public class UserInterface {
             int userInput1 = Integer.parseInt(myScanner.nextLine());
             switch (userInput1) {
                 case 1:
-                    System.out.println("""
-                            Which type bread would you like?
-                            1) White
-                            2) Wheat
-                            3) Rye
-                            4) Wrap
-                            """);
-                    int breadInput = Integer.parseInt(myScanner.nextLine());
-                    BreadType selectedBread = null;
-                    switch (breadInput) {
-                        case 1:
-                            selectedBread = BreadType.WHITE;
-                            break;
-                        case 2:
-                            selectedBread = BreadType.WHEAT;
-                            break;
-                        case 3:
-                            selectedBread = BreadType.RYE;
-                            break;
-                        case 4:
-                            selectedBread = BreadType.WRAP;
-                            break;
-                        default:
-                            System.err.println("Invalid Input please try again!");
-                    }
-                    SandwichSize sandwichSize = null;
-                    System.out.println("""
-                            Which Sandwich size would you like?
-                            1) Small (4")
-                            2) Medium (8")
-                            3) Large (12")
-                            """);
-                    int selectSize = Integer.parseInt(myScanner.nextLine());
-                    switch (selectSize) {
-                        case 1:
-                            sandwichSize = SandwichSize.FOUR;
-                            break;
-                        case 2:
-                            sandwichSize = SandwichSize.EIGHT;
-                            break;
-                        case 3:
-                            sandwichSize = SandwichSize.TWELVE;
-                            break;
-                        default:
-                            System.err.println("Invalid Input please try again!");
-                    }
-                    System.out.println("""
-                            Would you like your Sandwich toasted?
-                            1) Yes
-                            2) No
-                            """);
-                    int toastedInput = Integer.parseInt(myScanner.nextLine());
-                    boolean isToasted = toastedInput == 1;
-
-                    //Assigning values to my Sandwich, using all the user inputs
-                    Sandwich sandwich = new Sandwich(sandwichSize, selectedBread, isToasted);
-
-                    promptForTopping(sandwich, "Steak", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "Ham", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "Salami", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "Roast Beef", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "Chicken", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "Bacon", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "American Cheese", ToppingCategory.CHEESE, true);
-                    promptForTopping(sandwich, "Provolone Cheese", ToppingCategory.CHEESE, true);
-                    promptForTopping(sandwich, "Cheddar Cheese", ToppingCategory.CHEESE, true);
-                    promptForTopping(sandwich, "Swiss Cheese", ToppingCategory.CHEESE, true);
-                    promptForTopping(sandwich, "Lettuce", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Peppers", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Onions", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Tomatoes", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Jalapenos", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Cucumbers", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Pickles", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Guacamole", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Mushrooms", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Mayo", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Mustard", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Ketchup", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Ranch", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Thousand Islands", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Vinaigrette", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "au jus on the side", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Sauce on the side", ToppingCategory.SAUCE, false);
-
-
-                    currentOrder.addSandwich(sandwich);
-                    System.out.println("\nSandwich added to your order!\n");
+                    addingSandwich();
                     break;
                 case 2:
-                    System.out.println("""
-                            What size drink would you like ?
-                            1) Small
-                            2) Medium
-                            3) Large
-                            """);
-                    int drinkSizeUserSelection = Integer.parseInt(myScanner.nextLine());
-                    DrinkSize drinkSize = null;
-                    switch (drinkSizeUserSelection) {
-                        case 1:
-                            drinkSize = DrinkSize.SMALL;
-                            break;
-                        case 2:
-                            drinkSize = DrinkSize.MEDIUM;
-                            break;
-                        case 3:
-                            drinkSize = DrinkSize.LARGE;
-                            break;
-                        case 4:
-                            //Return back to previous menu
-                            break;
-                        default:
-                            System.err.println("Invalid selection please try again!");
-                    }
-                    Drink drink = new Drink(drinkSize);
-                    currentOrder.addDrink(drink);
-                    System.out.println("\nDrink was added to your Order!\n");
+                    addingDrink();
                     break;
                 case 3:
-                    Chips chips = new Chips();
-                    currentOrder.addChips(chips);
-                    System.out.println("Chips was added to your Order!\n");
+                    addingChips();
                     break;
                 case 4:
                     //Verifying that the order has at least one item in it
@@ -207,6 +92,134 @@ public class UserInterface {
 
         }
 
+    }
+
+    private void addingChips() {
+        Chips chips = new Chips();
+        currentOrder.addChips(chips);
+        System.out.println("Chips was added to your Order!\n");
+    }
+
+    private void addingDrink() {
+        System.out.println("""
+                What size drink would you like ?
+                1) Small
+                2) Medium
+                3) Large
+                """);
+        int drinkSizeUserSelection = Integer.parseInt(myScanner.nextLine());
+        DrinkSize drinkSize = null;
+        switch (drinkSizeUserSelection) {
+            case 1:
+                drinkSize = DrinkSize.SMALL;
+                break;
+            case 2:
+                drinkSize = DrinkSize.MEDIUM;
+                break;
+            case 3:
+                drinkSize = DrinkSize.LARGE;
+                break;
+            case 4:
+                //Return back to previous menu
+                break;
+            default:
+                System.err.println("Invalid selection please try again!");
+        }
+        Drink drink = new Drink(drinkSize);
+        currentOrder.addDrink(drink);
+        System.out.println("\nDrink was added to your Order!\n");
+    }
+
+    private void addingSandwich() {
+        System.out.println("""
+                Which type bread would you like?
+                1) White
+                2) Wheat
+                3) Rye
+                4) Wrap
+                """);
+        int breadInput = Integer.parseInt(myScanner.nextLine());
+        BreadType selectedBread = null;
+        switch (breadInput) {
+            case 1:
+                selectedBread = BreadType.WHITE;
+                break;
+            case 2:
+                selectedBread = BreadType.WHEAT;
+                break;
+            case 3:
+                selectedBread = BreadType.RYE;
+                break;
+            case 4:
+                selectedBread = BreadType.WRAP;
+                break;
+            default:
+                System.err.println("Invalid Input please try again!");
+        }
+        SandwichSize sandwichSize = null;
+        System.out.println("""
+                Which Sandwich size would you like?
+                1) Small (4")
+                2) Medium (8")
+                3) Large (12")
+                """);
+        int selectSize = Integer.parseInt(myScanner.nextLine());
+        switch (selectSize) {
+            case 1:
+                sandwichSize = SandwichSize.FOUR;
+                break;
+            case 2:
+                sandwichSize = SandwichSize.EIGHT;
+                break;
+            case 3:
+                sandwichSize = SandwichSize.TWELVE;
+                break;
+            default:
+                System.err.println("Invalid Input please try again!");
+        }
+        System.out.println("""
+                Would you like your Sandwich toasted?
+                1) Yes
+                2) No
+                """);
+        int toastedInput = Integer.parseInt(myScanner.nextLine());
+        boolean isToasted = toastedInput == 1;
+
+        //Assigning values to my Sandwich, using all the user inputs
+        Sandwich sandwich = new Sandwich(sandwichSize, selectedBread, isToasted);
+
+        promptForTopping(sandwich, "Steak", ToppingCategory.MEAT, true);
+        promptForTopping(sandwich, "Ham", ToppingCategory.MEAT, true);
+        promptForTopping(sandwich, "Salami", ToppingCategory.MEAT, true);
+        promptForTopping(sandwich, "Roast Beef", ToppingCategory.MEAT, true);
+        promptForTopping(sandwich, "Chicken", ToppingCategory.MEAT, true);
+        promptForTopping(sandwich, "Bacon", ToppingCategory.MEAT, true);
+        promptForTopping(sandwich, "American Cheese", ToppingCategory.CHEESE, true);
+        promptForTopping(sandwich, "Provolone Cheese", ToppingCategory.CHEESE, true);
+        promptForTopping(sandwich, "Cheddar Cheese", ToppingCategory.CHEESE, true);
+        promptForTopping(sandwich, "Swiss Cheese", ToppingCategory.CHEESE, true);
+        promptForTopping(sandwich, "Lettuce", ToppingCategory.REGULAR, false);
+        promptForTopping(sandwich, "Peppers", ToppingCategory.REGULAR, false);
+        promptForTopping(sandwich, "Onions", ToppingCategory.REGULAR, false);
+        promptForTopping(sandwich, "Tomatoes", ToppingCategory.REGULAR, false);
+        promptForTopping(sandwich, "Jalapenos", ToppingCategory.REGULAR, false);
+        promptForTopping(sandwich, "Cucumbers", ToppingCategory.REGULAR, false);
+        promptForTopping(sandwich, "Pickles", ToppingCategory.REGULAR, false);
+        promptForTopping(sandwich, "Guacamole", ToppingCategory.REGULAR, false);
+        promptForTopping(sandwich, "Mushrooms", ToppingCategory.REGULAR, false);
+        promptForTopping(sandwich, "Mayo", ToppingCategory.SAUCE, false);
+        promptForTopping(sandwich, "Mustard", ToppingCategory.SAUCE, false);
+        promptForTopping(sandwich, "Ketchup", ToppingCategory.SAUCE, false);
+        promptForTopping(sandwich, "Ranch", ToppingCategory.SAUCE, false);
+        promptForTopping(sandwich, "Thousand Islands", ToppingCategory.SAUCE, false);
+        promptForTopping(sandwich, "Vinaigrette", ToppingCategory.SAUCE, false);
+        promptForTopping(sandwich, "au jus on the side", ToppingCategory.SAUCE, false);
+        promptForTopping(sandwich, "Sauce on the side", ToppingCategory.SAUCE, false);
+
+
+        currentOrder.addSandwich(sandwich);
+        System.out.println("\nSandwich added to your order!\n");
+        return;
     }
 
     //Making a method to prompt the user topping by topping to reduce chance of user error
