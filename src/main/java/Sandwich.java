@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Sandwich implements Product {
-    private SandwichSize size;
-    private BreadType breadType;
-    private boolean toasted;
-    private ArrayList<Topping> toppings;
+    private final SandwichSize size;
+    private final BreadType breadType;
+    private final boolean toasted;
+    private final ArrayList<Topping> toppings;
 
     @Override
     public String toString() {

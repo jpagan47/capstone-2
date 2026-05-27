@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Order {
-    private ArrayList<Sandwich> sandwiches;
-    private ArrayList<Drink> drinks;
-    private ArrayList<Chips> chips;
+    private final ArrayList<Sandwich> sandwiches;
+    private final ArrayList<Drink> drinks;
+    private final ArrayList<Chips> chips;
 
 
 

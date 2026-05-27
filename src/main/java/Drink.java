@@ -1,5 +1,5 @@
 public class Drink implements Product{
-    private DrinkSize drinkSize;
+    private final DrinkSize drinkSize;
 
     public Drink(DrinkSize drinkSize){
         this.drinkSize = drinkSize;
@@ -8,7 +8,7 @@ public class Drink implements Product{
     @Override
     public String toString() {
         return "-A Drink" +
-                "Size: " + drinkSize ;
+                " Size: " + drinkSize ;
     }
 
     @Override

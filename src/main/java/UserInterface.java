@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class UserInterface {
-    private Scanner myScanner = new Scanner(System.in);
+    private final Scanner myScanner = new Scanner(System.in);
     private Order currentOrder;
 
     public UserInterface() {
