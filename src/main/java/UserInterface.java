@@ -274,25 +274,48 @@ public class UserInterface {
 
     //Making a method to prompt the user topping by topping to reduce chance of user error
     private void promptForTopping(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium) {
-        System.out.println(" Would you like " + toppingName + " ? (1) Yes✅ : (2) No❌");
-        int userInput = Integer.parseInt(myScanner.nextLine());
-        if (userInput == 1) {
-            sandwich.addTopping(new Topping(toppingName, category, isPremium, false));
-            if (isPremium) {
-                promptForExtraToppings(sandwich, toppingName, category, isPremium);
+        boolean running = true;
+        while (running) {
+            System.out.println("Would you like " + toppingName + " ? (1) Yes✅ : (2) No❌");
+            int userInput = Integer.parseInt(myScanner.nextLine());
+            if (userInput == 1) {
+                sandwich.addTopping(new Topping(toppingName, category, isPremium, false));
+                if (isPremium) {
+                    promptForExtraToppings(sandwich, toppingName, category, isPremium);
+                }
+                running = false;
+            } else if (userInput == 2) {
+                running = false;
+            } else {
+                System.err.println("Please ENTER a valid number.❌");
+
+
             }
+
         }
+
     }
 
     private void promptForExtraToppings(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium) {
-        System.out.println("Would you like Extra " + toppingName + " ? Yes✅ : (2) No ❌");
-        int userInput = Integer.parseInt(myScanner.nextLine());
-        if (userInput == 1) {
-            String extraToppingName = "Extra " + toppingName;
-            sandwich.addTopping(new Topping(extraToppingName, category, isPremium, true));
+        boolean running = true;
+        while (running) {
+            System.out.println("Would you like Extra " + toppingName + " ? Yes✅ : (2) No ❌");
+            int userInput = Integer.parseInt(myScanner.nextLine());
+            if (userInput == 1) {
+                String extraToppingName = "Extra " + toppingName;
+                sandwich.addTopping(new Topping(extraToppingName, category, isPremium, true));
+                running =false;
+            } else if (userInput == 2) {
+                running = false;
+
+            } else {
+                System.err.println("Please ENTER a valid number.❌");
+            };
         }
+
     }
-    public void exitScreen(){
+
+    public void exitScreen() {
         System.out.println("""
                             ✰✰✰✰✰✰✰✰
                 .𖥔 ݁ ˖╭ ┆THANK YOU COME AGAIN! ╰⊹ ࣪
