@@ -156,168 +156,121 @@ public class UserInterface {
 
         {
             boolean running = true;
-            while (running)
-                try {
+            while (running) {
+
+                System.out.println("""
+                        Which type bread would you like?
+                        1) White
+                        2) Wheat
+                        3) Rye
+                        4) Wrap
+                        """);
+                String breadInput = myScanner.nextLine();
+                BreadType selectedBread;
+                switch (breadInput) {
+                    case "1":
+                        selectedBread = BreadType.WHITE;
+                        running = false;
+                        break;
+                    case "2":
+                        selectedBread = BreadType.WHEAT;
+                        running = false;
+                        break;
+                    case "3":
+                        selectedBread = BreadType.RYE;
+                        running = false;
+                        break;
+                    case "4":
+                        selectedBread = BreadType.WRAP;
+                        running = false;
+                        break;
+                    default:
+                        System.err.println("Invalid Input please try again!❌");
+                        continue;
+                }
+                SandwichSize sandwichSize = null;
+
+                running = true;
+                while (running) {
                     System.out.println("""
-                            Which type bread would you like?
-                            1) White
-                            2) Wheat
-                            3) Rye
-                            4) Wrap
+                            Which Sandwich size would you like?
+                            1) Small (4")
+                            2) Medium (8")
+                            3) Large (12")
                             """);
-                    int breadInput = Integer.parseInt(myScanner.nextLine());
-                    BreadType selectedBread ;
-                    switch (breadInput) {
-                        case 1:
-                            selectedBread = BreadType.WHITE;
+                    String selectSize = myScanner.nextLine();
+                    switch (selectSize) {
+                        case "1":
+                            sandwichSize = SandwichSize.FOUR;
                             running = false;
                             break;
-                        case 2:
-                            selectedBread = BreadType.WHEAT;
+                        case "2":
+                            sandwichSize = SandwichSize.EIGHT;
                             running = false;
                             break;
-                        case 3:
-                            selectedBread = BreadType.RYE;
-                            running = false;
-                            break;
-                        case 4:
-                            selectedBread = BreadType.WRAP;
+                        case "3":
+                            sandwichSize = SandwichSize.TWELVE;
                             running = false;
                             break;
                         default:
                             System.err.println("Invalid Input please try again!❌");
-                            continue;
+
+
                     }
-                    SandwichSize sandwichSize = null;
 
-                    running = true;
-                    while (running) {
+                }
+                System.out.println("""
+                        Would you like your Sandwich toasted?
+                        1) Yes✅
+                        2) No ❌
+                        """);
+                int toastedInput = Integer.parseInt(myScanner.nextLine());
+                boolean isToasted = toastedInput == 1;
+
+                //Assigning values to my Sandwich, using all the user inputs
+                Sandwich sandwich = new Sandwich(sandwichSize, selectedBread, isToasted);
+
+                System.out.println("""
+                        Would you like toppings on your sandwich?
+                        1) Yes✅
+                        2) No ❌
+                        """);
+                String userInput = myScanner.nextLine();
+                switch (userInput) {
+                    case "1":
                         System.out.println("""
-                                Which Sandwich size would you like?
-                                1) Small (4")
-                                2) Medium (8")
-                                3) Large (12")
+                                Select your Protein...
+                                
+                                1) Steak
+                                2) Ham
+                                3) Salami
+                                4) Roast Beef
+                                5) Chicken
+                                6) Bacon
+                                7) None
+                                
                                 """);
-                        int selectSize = Integer.parseInt(myScanner.nextLine());
-                        switch (selectSize) {
-                            case 1:
-                                sandwichSize = SandwichSize.FOUR;
-                                running = false;
-                                break;
-                            case 2:
-                                sandwichSize = SandwichSize.EIGHT;
-                                running = false;
-                                break;
-                            case 3:
-                                sandwichSize = SandwichSize.TWELVE;
-                                running = false;
-                                break;
-                            default:
-                                System.err.println("Invalid Input please try again!❌");
-
+                        String proteinType = myScanner.nextLine();
+                        switch (proteinType) {
+                            case "1":
 
                         }
+                        break;
+                    case "2":
 
-                    }
-                    System.out.println("""
-                            Would you like your Sandwich toasted?
-                            1) Yes✅
-                            2) No ❌
-                            """);
-                    int toastedInput = Integer.parseInt(myScanner.nextLine());
-                    boolean isToasted = toastedInput == 1;
+                        break;
 
-                    //Assigning values to my Sandwich, using all the user inputs
-                    Sandwich sandwich = new Sandwich(sandwichSize, selectedBread, isToasted);
-
-                    promptForTopping(sandwich, "Steak", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "Ham", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "Salami", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "Roast Beef", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "Chicken", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "Bacon", ToppingCategory.MEAT, true);
-                    promptForTopping(sandwich, "American Cheese", ToppingCategory.CHEESE, true);
-                    promptForTopping(sandwich, "Provolone Cheese", ToppingCategory.CHEESE, true);
-                    promptForTopping(sandwich, "Cheddar Cheese", ToppingCategory.CHEESE, true);
-                    promptForTopping(sandwich, "Swiss Cheese", ToppingCategory.CHEESE, true);
-                    promptForTopping(sandwich, "Lettuce", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Peppers", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Onions", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Tomatoes", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Jalapenos", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Cucumbers", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Pickles", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Guacamole", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Mushrooms", ToppingCategory.REGULAR, false);
-                    promptForTopping(sandwich, "Mayo", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Mustard", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Ketchup", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Ranch", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Thousand Islands", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Vinaigrette", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "au jus on the side", ToppingCategory.SAUCE, false);
-                    promptForTopping(sandwich, "Sauce on the side", ToppingCategory.SAUCE, false);
-
-
-                    currentOrder.addSandwich(sandwich);
-                    System.out.println("\nSandwich added to your order!✅\n");
-
-                } catch (NumberFormatException nfe) {
-                    System.err.println("Please ENTER a valid number.❌");
                 }
-
-
-        }
-    }
-
-    //Making a method to prompt the user topping by topping to reduce chance of user error
-    private void promptForTopping(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium) {
-        boolean running = true;
-        while (running) {
-            System.out.println("Would you like " + toppingName + " ? (1) Yes✅ : (2) No❌");
-            int userInput = Integer.parseInt(myScanner.nextLine());
-            if (userInput == 1) {
-                sandwich.addTopping(new Topping(toppingName, category, isPremium, false));
-                if (isPremium) {
-                    promptForExtraToppings(sandwich, toppingName, category, isPremium);
-                }
-                running = false;
-            } else if (userInput == 2) {
-                running = false;
-            } else {
-                System.err.println("Please ENTER a valid number.❌");
-
+//
 
             }
-
         }
-
     }
-
-    private void promptForExtraToppings(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium) {
-        boolean running = true;
-        while (running) {
-            System.out.println("Would you like Extra " + toppingName + " ? Yes✅ : (2) No ❌");
-            int userInput = Integer.parseInt(myScanner.nextLine());
-            if (userInput == 1) {
-                String extraToppingName = "Extra " + toppingName;
-                sandwich.addTopping(new Topping(extraToppingName, category, isPremium, true));
-                running =false;
-            } else if (userInput == 2) {
-                running = false;
-
-            } else {
-                System.err.println("Please ENTER a valid number.❌");
-            }
-        }
-
-    }
-
-    public void exitScreen() {
+    public void exitScreen () {
         System.out.println("""
-                            ✰✰✰✰✰✰✰✰
-                .𖥔 ݁ ˖╭ ┆THANK YOU COME AGAIN! ╰⊹ ࣪
-                            ✦·┈๑⋅⋯ ⋯⋅๑┈·✦
-                """);
+                                        ✰✰✰✰✰✰✰✰
+                            .𖥔 ݁ ˖╭ ┆THANK YOU COME AGAIN! ╰⊹ ࣪
+                                        ✦·┈๑⋅⋯ ⋯⋅๑┈·✦
+                            """);
     }
 }
