@@ -16,6 +16,7 @@ public class UserInterface {
         boolean running = true;
         while (running) {
             System.out.println("""
+                    
                     𖡼.𖤣𖥧𖡼.𖤣𖥧    Jose's Deli    𖡼.𖤣𖥧𖡼.𖤣𖥧
                                🥤🥗🍔🍗🍟🥓
                                 1) New Order
@@ -33,10 +34,10 @@ public class UserInterface {
                         running = false;
                         break;
                     default:
-                        System.err.println("Invalid entry please try again ");
+                        System.err.println("❌Invalid entry please try again❌ ");
                 }
             } catch (NumberFormatException nfe) {
-                System.err.println("Please ENTER a valid number.");
+                System.err.println("❌Please ENTER a valid number.❌");
 
             }
 
@@ -70,13 +71,13 @@ public class UserInterface {
                     case 4:
                         //Verifying that the order has at least one item in it
                         if (currentOrder.getTotal() == 0) {
-                            System.err.println("You must add at least one item from our menu!");
+                            System.err.println("You must add at least one item from our menu!⚠");
                             break;
                         }
                         //Displaying the receipt before saving it to a new .txt file and then deleting it
                         System.out.println(currentOrder.getOrderSummary());
-                        System.out.println("1) Yes, complete my order");
-                        System.out.println("2) No, cancel it ");
+                        System.out.println("1) Yes, complete my order ✅");
+                        System.out.println("2) No, cancel it ❌");
                         int confirm = Integer.parseInt(myScanner.nextLine());
                         switch (confirm) {
                             case 1:
@@ -97,11 +98,11 @@ public class UserInterface {
                         running = false;
                         break;
                     default:
-                        System.err.println("Invalid Selection please try again");
+                        System.err.println("Invalid Selection please try again❌");
 
                 }
             } catch (NumberFormatException nfe) {
-                System.err.println("Please ENTER a valid number.");
+                System.err.println("Please ENTER a valid number.❌");
             }
 
         }
@@ -111,7 +112,7 @@ public class UserInterface {
     private void addingChips() {
         Chips chips = new Chips();
         currentOrder.addChips(chips);
-        System.out.println("Chips was added to your Order!\n");
+        System.out.println("Chips was added to your Order!✅\n");
     }
 
     private void addingDrink() {
@@ -127,28 +128,28 @@ public class UserInterface {
             switch (drinkSizeUserSelection) {
                 case 1:
                     drinkSize = DrinkSize.SMALL;
-                    System.out.println("\nDrink was added to your Order!\n");
+                    System.out.println("\nDrink was added to your Order!✅\n");
                     break;
                 case 2:
                     drinkSize = DrinkSize.MEDIUM;
-                    System.out.println("\nDrink was added to your Order!\n");
+                    System.out.println("\nDrink was added to your Order!✅\n");
                     break;
                 case 3:
                     drinkSize = DrinkSize.LARGE;
-                    System.out.println("\nDrink was added to your Order!\n");
+                    System.out.println("\nDrink was added to your Order!✅\n");
                     break;
 //                case 4:
 //                    //Return back to previous menu
 //                    break;
                 default:
-                    System.err.println("Invalid selection please try again!");
+                    System.err.println("Invalid selection please try again!❌");
             }
             Drink drink = new Drink(drinkSize);
             currentOrder.addDrink(drink);
 
 
         } catch (NumberFormatException nfe) {
-            System.err.println("Please ENTER a valid number.");
+            System.err.println("Please ENTER a valid number.❌");
         }
 
     }
@@ -186,7 +187,7 @@ public class UserInterface {
                             running = false;
                             break;
                         default:
-                            System.err.println("Invalid Input please try again!");
+                            System.err.println("Invalid Input please try again!❌");
                             continue;
                     }
                     SandwichSize sandwichSize = null;
@@ -214,7 +215,7 @@ public class UserInterface {
                                 running = false;
                                 break;
                             default:
-                                System.err.println("Invalid Input please try again!");
+                                System.err.println("Invalid Input please try again!❌");
                                 running = true;
 
                         }
@@ -222,8 +223,8 @@ public class UserInterface {
                     }
                     System.out.println("""
                             Would you like your Sandwich toasted?
-                            1) Yes
-                            2) No
+                            1) Yes✅
+                            2) No ❌
                             """);
                     int toastedInput = Integer.parseInt(myScanner.nextLine());
                     boolean isToasted = toastedInput == 1;
@@ -261,10 +262,10 @@ public class UserInterface {
 
 
                     currentOrder.addSandwich(sandwich);
-                    System.out.println("\nSandwich added to your order!\n");
+                    System.out.println("\nSandwich added to your order!✅\n");
 
                 } catch (NumberFormatException nfe) {
-                    System.err.println("Please ENTER a valid number.");
+                    System.err.println("Please ENTER a valid number.❌");
                 }
 
 
@@ -273,7 +274,7 @@ public class UserInterface {
 
     //Making a method to prompt the user topping by topping to reduce chance of user error
     private void promptForTopping(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium) {
-        System.out.println(" Would you like " + toppingName + " ? (1) Yes : (2) No");
+        System.out.println(" Would you like " + toppingName + " ? (1) Yes✅ : (2) No❌");
         int userInput = Integer.parseInt(myScanner.nextLine());
         if (userInput == 1) {
             sandwich.addTopping(new Topping(toppingName, category, isPremium, false));
@@ -284,11 +285,18 @@ public class UserInterface {
     }
 
     private void promptForExtraToppings(Sandwich sandwich, String toppingName, ToppingCategory category, boolean isPremium) {
-        System.out.println("Would you like Extra " + toppingName + " ? Yes : (2) No ");
+        System.out.println("Would you like Extra " + toppingName + " ? Yes✅ : (2) No ❌");
         int userInput = Integer.parseInt(myScanner.nextLine());
         if (userInput == 1) {
             String extraToppingName = "Extra " + toppingName;
             sandwich.addTopping(new Topping(extraToppingName, category, isPremium, true));
         }
+    }
+    public void exitScreen(){
+        System.out.println("""
+                            ✰✰✰✰✰✰✰✰
+                .𖥔 ݁ ˖╭ ┆THANK YOU COME AGAIN! ╰⊹ ࣪
+                            ✦·┈๑⋅⋯ ⋯⋅๑┈·✦
+                """);
     }
 }
