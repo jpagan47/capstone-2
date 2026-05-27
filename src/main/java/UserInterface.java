@@ -138,9 +138,7 @@ public class UserInterface {
                     drinkSize = DrinkSize.LARGE;
                     System.out.println("\nDrink was added to your Order!✅\n");
                     break;
-//                case 4:
-//                    //Return back to previous menu
-//                    break;
+
                 default:
                     System.err.println("Invalid selection please try again!❌");
             }
@@ -168,7 +166,7 @@ public class UserInterface {
                             4) Wrap
                             """);
                     int breadInput = Integer.parseInt(myScanner.nextLine());
-                    BreadType selectedBread = null;
+                    BreadType selectedBread ;
                     switch (breadInput) {
                         case 1:
                             selectedBread = BreadType.WHITE;
@@ -216,7 +214,7 @@ public class UserInterface {
                                 break;
                             default:
                                 System.err.println("Invalid Input please try again!❌");
-                                running = true;
+
 
                         }
 
@@ -310,7 +308,7 @@ public class UserInterface {
 
             } else {
                 System.err.println("Please ENTER a valid number.❌");
-            };
+            }
         }
 
     }
