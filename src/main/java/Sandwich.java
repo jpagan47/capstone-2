@@ -5,6 +5,25 @@ public class Sandwich implements Product {
     private Meat meat;
     private boolean extraMeat;
     private Cheese cheese;
+    private Sauce sauce;
+
+    public Sauce getSauce() {
+        return sauce;
+    }
+
+    public void setSauce(Sauce sauce) {
+        this.sauce = sauce;
+    }
+
+    public RegularTopping getRegularTopping() {
+        return regularTopping;
+    }
+
+    public void setRegularTopping(RegularTopping regularTopping) {
+        this.regularTopping = regularTopping;
+    }
+
+    private RegularTopping regularTopping;
     private boolean extraCheese;
 
     private ArrayList<Topping> toppings;

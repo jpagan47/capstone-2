@@ -274,8 +274,8 @@ public class UserInterface {
                 }
 
                 printList(cheeses);
-                String userInput = myScanner.nextLine();
-                switch (userInput) {
+                String selectedCheese = myScanner.nextLine();
+                switch (selectedCheese) {
                     case "1":
                         sandwich.setCheese(Cheese.American);
                         break;
@@ -291,7 +291,39 @@ public class UserInterface {
                     default:
                         System.err.println("Invalid Input please try again!❌");
                 }
-
+                printList(regularToppings);
+                String selectedSauce = myScanner.nextLine();
+                switch (selectedSauce) {
+                    case "1":
+                        sandwich.setRegularTopping(RegularTopping.LETTUCE);
+                        break;
+                    case "2":
+                        sandwich.setRegularTopping(RegularTopping.PEPPERS);
+                        break;
+                    case "3":
+                        sandwich.setRegularTopping(RegularTopping.ONIONS);
+                        break;
+                    case "4":
+                        sandwich.setRegularTopping(RegularTopping.TOMATOES);
+                        break;
+                    case "5":
+                        sandwich.setRegularTopping(RegularTopping.JALAPENOS);
+                        break;
+                    case "6":
+                        sandwich.setRegularTopping(RegularTopping.CUCUMBERS);
+                        break;
+                    case "7":
+                        sandwich.setRegularTopping(RegularTopping.PICKLES);
+                        break;
+                    case "8":
+                        sandwich.setRegularTopping(RegularTopping.GUACAMOLE);
+                        break;
+                    case "9":
+                        sandwich.setRegularTopping(RegularTopping.MUSHROOMS);
+                        break;
+                    default:
+                        System.err.println("Invalid Input please try again!❌");
+                }
 
 
             }
