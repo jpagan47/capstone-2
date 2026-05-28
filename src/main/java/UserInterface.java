@@ -128,6 +128,7 @@ public class UserInterface {
                 2) Medium
                 3) Large
                 """);
+
         try {
             int drinkSizeUserSelection = Integer.parseInt(myScanner.nextLine());
             DrinkSize drinkSize = null;
