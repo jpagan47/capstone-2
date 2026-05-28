@@ -107,7 +107,6 @@ public class UserInterface {
 
             }
 
-
         }
 
     }
@@ -276,6 +275,7 @@ public class UserInterface {
                     running = false;
                     break;
                 case "7":
+                    running = false;
                     break;
                 default:
                     System.err.println("Invalid Input please try again!❌");
