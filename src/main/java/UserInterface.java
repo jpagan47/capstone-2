@@ -248,7 +248,7 @@ public class UserInterface {
                         7. None
                         """);
                 String selectedMeat = myScanner.nextLine();
-                switch(selectedMeat) {
+                switch (selectedMeat) {
                     case "1":
                         sandwich.setMeat(Meat.Steak);
                         break;
@@ -275,13 +275,24 @@ public class UserInterface {
 
                 printList(cheeses);
                 String userInput = myScanner.nextLine();
-                switch (userInput){
+                switch (userInput) {
                     case "1":
-
+                        sandwich.setCheese(Cheese.American);
+                        break;
+                    case "2":
+                        sandwich.setCheese(Cheese.Provolone);
+                        break;
+                    case "3":
+                        sandwich.setCheese(Cheese.Cheddar);
+                        break;
+                    case "4":
+                        sandwich.setCheese(Cheese.Swiss);
+                        break;
+                    default:
+                        System.err.println("Invalid Input please try again!❌");
                 }
 
 
-//
 
             }
         }
