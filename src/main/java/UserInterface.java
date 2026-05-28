@@ -1,8 +1,14 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserInterface {
     private final Scanner myScanner = new Scanner(System.in);
     private Order currentOrder;
+    private final ArrayList<String> meats = new ArrayList<>(Arrays.asList("Steak", "Ham", "Salami", "Roast Beef", "Chicken", "Bacon"));
+    private final ArrayList<String> cheeses = new ArrayList<>(Arrays.asList("American", "Provolone", "Cheddar", "Swiss"));
+    private final ArrayList<String> regularToppings = new ArrayList<>(Arrays.asList("Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapeños", "Cucumbers", "Pickles", "Guacamole", "Mushrooms"));
+    private final ArrayList<String> sauces = new ArrayList<>(Arrays.asList("Mayo", "Mustard", "ketchup", "Ranch", "Thousand Islands", "Vinaigrette", "Au jus", "Sauce on the side"));
 
     public UserInterface() {
 
@@ -230,47 +236,71 @@ public class UserInterface {
                 //Assigning values to my Sandwich, using all the user inputs
                 Sandwich sandwich = new Sandwich(sandwichSize, selectedBread, isToasted);
 
-                System.out.println("""
-                        Would you like toppings on your sandwich?
-                        1) Yes✅
-                        2) No ❌
-                        """);
-                String userInput = myScanner.nextLine();
-                switch (userInput) {
-                    case "1":
-                        System.out.println("""
-                                Select your Protein...
-                                
-                                1) Steak
-                                2) Ham
-                                3) Salami
-                                4) Roast Beef
-                                5) Chicken
-                                6) Bacon
-                                7) None
-                                
-                                """);
-                        String proteinType = myScanner.nextLine();
-                        switch (proteinType) {
-                            case "1":
 
-                        }
+                //Printing out my List of Meats one by one
+                System.out.println("""
+                        1. Steak
+                        2. Ham
+                        3. Salami
+                        4. Roast Beef
+                        5. Chicken
+                        6. Bacon
+                        7. None
+                        """);
+                String selectedMeat = myScanner.nextLine();
+                switch(selectedMeat) {
+                    case "1":
+                        sandwich.setMeat(Meat.Steak);
                         break;
                     case "2":
-
+                        sandwich.setMeat(Meat.Ham);
                         break;
+                    case "3":
+                        sandwich.setMeat(Meat.Salami);
+                        break;
+                    case "4":
+                        sandwich.setMeat(Meat.Roast_Beef);
+                        break;
+                    case "5":
+                        sandwich.setMeat(Meat.Chicken);
+                        break;
+                    case "6":
+                        sandwich.setMeat(Meat.Bacon);
+                        break;
+                    case "7":
+                        break;
+                    default:
+                        System.err.println("Invalid Input please try again!❌");
+                }
+
+                printList(cheeses);
+                String userInput = myScanner.nextLine();
+                switch (userInput){
+                    case "1":
 
                 }
+
+
 //
 
             }
         }
     }
-    public void exitScreen () {
-        System.out.println("""
-                                        ✰✰✰✰✰✰✰✰
-                            .𖥔 ݁ ˖╭ ┆THANK YOU COME AGAIN! ╰⊹ ࣪
-                                        ✦·┈๑⋅⋯ ⋯⋅๑┈·✦
-                            """);
+
+    public void printList(ArrayList<String> items) {
+        for (int i = 0; i < items.size(); i++) {
+            System.out.println((i + 1) + ")" + items.get(i));
+
+        }
+
     }
+
+    public void exitScreen() {
+        System.out.println("""
+                            ✰✰✰✰✰✰✰✰
+                .𖥔 ݁ ˖╭ ┆THANK YOU COME AGAIN! ╰⊹ ࣪
+                            ✦·┈๑⋅⋯ ⋯⋅๑┈·✦
+                """);
+    }
+
 }
