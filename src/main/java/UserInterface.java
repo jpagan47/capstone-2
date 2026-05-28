@@ -248,122 +248,156 @@ public class UserInterface {
 
     private void addingMeat(Sandwich sandwich) {
         //Printing out my List of Meats one by one
-        printList(meats);
-        String selectedMeat = myScanner.nextLine();
-        switch (selectedMeat) {
-            case "1":
-                sandwich.setMeat(Meat.Steak);
-                break;
-            case "2":
-                sandwich.setMeat(Meat.Ham);
-                break;
-            case "3":
-                sandwich.setMeat(Meat.Salami);
-                break;
-            case "4":
-                sandwich.setMeat(Meat.Roast_Beef);
-                break;
-            case "5":
-                sandwich.setMeat(Meat.Chicken);
-                break;
-            case "6":
-                sandwich.setMeat(Meat.Bacon);
-                break;
-            case "7":
-                break;
-            default:
-                System.err.println("Invalid Input please try again!❌");
+        boolean running = true;
+        while (running) {
+            printList(meats);
+            System.out.println("7)No Meat");
+            String selectedMeat = myScanner.nextLine();
+            switch (selectedMeat) {
+                case "1":
+                    sandwich.setMeat(Meat.Steak);
+                    running = false;
+                    break;
+                case "2":
+                    sandwich.setMeat(Meat.Ham);
+                    running = false;
+                    break;
+                case "3":
+                    sandwich.setMeat(Meat.Salami);
+                    running = false;
+                    break;
+                case "4":
+                    sandwich.setMeat(Meat.Roast_Beef);
+                    running = false;
+                    break;
+                case "5":
+                    sandwich.setMeat(Meat.Chicken);
+                    running = false;
+                    break;
+                case "6":
+                    sandwich.setMeat(Meat.Bacon);
+                    running = false;
+                    break;
+                case "7":
+                    break;
+                default:
+                    System.err.println("Invalid Input please try again!❌");
+            }
         }
+
     }
 
     private void addingCheese(Sandwich sandwich) {
-        printList(cheeses);
-        String selectedCheese = myScanner.nextLine();
-        switch (selectedCheese) {
-            case "1":
-                sandwich.setCheese(Cheese.American);
-                break;
-            case "2":
-                sandwich.setCheese(Cheese.Provolone);
-                break;
-            case "3":
-                sandwich.setCheese(Cheese.Cheddar);
-                break;
-            case "4":
-                sandwich.setCheese(Cheese.Swiss);
-                break;
-            default:
-                System.err.println("Invalid Input please try again!❌");
+        boolean running = true;
+        while (running) {
+            printList(cheeses);
+            String selectedCheese = myScanner.nextLine();
+            switch (selectedCheese) {
+                case "1":
+                    sandwich.setCheese(Cheese.American);
+                    running = false;
+                    break;
+                case "2":
+                    sandwich.setCheese(Cheese.Provolone);
+                    running = false;
+                    break;
+                case "3":
+                    sandwich.setCheese(Cheese.Cheddar);
+                    running = false;
+                    break;
+                case "4":
+                    sandwich.setCheese(Cheese.Swiss);
+                    running = false;
+                    break;
+                default:
+                    System.err.println("Invalid Input please try again!❌");
+            }
         }
+
     }
 
     private void addingRegToppings(Sandwich sandwich) {
-        printList(regularToppings);
-        String selectedTopping = myScanner.nextLine();
-        switch (selectedTopping) {
-            case "1":
-                sandwich.setRegularTopping(RegularTopping.LETTUCE);
-                break;
-            case "2":
-                sandwich.setRegularTopping(RegularTopping.PEPPERS);
-                break;
-            case "3":
-                sandwich.setRegularTopping(RegularTopping.ONIONS);
-                break;
-            case "4":
-                sandwich.setRegularTopping(RegularTopping.TOMATOES);
-                break;
-            case "5":
-                sandwich.setRegularTopping(RegularTopping.JALAPENOS);
-                break;
-            case "6":
-                sandwich.setRegularTopping(RegularTopping.CUCUMBERS);
-                break;
-            case "7":
-                sandwich.setRegularTopping(RegularTopping.PICKLES);
-                break;
-            case "8":
-                sandwich.setRegularTopping(RegularTopping.GUACAMOLE);
-                break;
-            case "9":
-                sandwich.setRegularTopping(RegularTopping.MUSHROOMS);
-                break;
-            default:
-                System.err.println("Invalid Input please try again!❌");
+        boolean running = true;
+        while (running) {
+            printList(regularToppings);
+            System.out.println("10)Done");
+            String selectedTopping = myScanner.nextLine();
+            switch (selectedTopping) {
+                case "1":
+                    sandwich.setRegularTopping(RegularTopping.LETTUCE);
+                    break;
+                case "2":
+                    sandwich.setRegularTopping(RegularTopping.PEPPERS);
+                    break;
+                case "3":
+                    sandwich.setRegularTopping(RegularTopping.ONIONS);
+                    break;
+                case "4":
+                    sandwich.setRegularTopping(RegularTopping.TOMATOES);
+                    break;
+                case "5":
+                    sandwich.setRegularTopping(RegularTopping.JALAPENOS);
+                    break;
+                case "6":
+                    sandwich.setRegularTopping(RegularTopping.CUCUMBERS);
+                    break;
+                case "7":
+                    sandwich.setRegularTopping(RegularTopping.PICKLES);
+                    break;
+                case "8":
+                    sandwich.setRegularTopping(RegularTopping.GUACAMOLE);
+                    break;
+                case "9":
+                    sandwich.setRegularTopping(RegularTopping.MUSHROOMS);
+                    break;
+                case "10":
+                    running = false;
+                    break;
+                default:
+                    System.err.println("Invalid Input please try again!❌");
+            }
+
         }
+
     }
 
     private void addingSauces(Sandwich sandwich) {
-        printList(sauces);
-        String selectSauces = myScanner.nextLine();
-        switch (selectSauces) {
-            case "1":
-                sandwich.setSauce(Sauce.MAYO);
-                break;
-            case "2":
-                sandwich.setSauce(Sauce.MUSTARD);
-                break;
-            case "3":
-                sandwich.setSauce(Sauce.KETCHUP);
-                break;
-            case "4":
-                sandwich.setSauce(Sauce.RANCH);
-                break;
-            case "5":
-                sandwich.setSauce(Sauce.THOUSAND_ISLANDS);
-                break;
-            case "6":
-                sandwich.setSauce(Sauce.VINAIGRETTE);
-                break;
-            case "7":
-                sandwich.setSauce(Sauce.AU_JUS);
-                break;
-            case "8":
-                sandwich.setSauce(Sauce.SIDE_OF_SAUCE);
-                break;
-            default:
-                System.err.println("Invalid Input please try again!❌");
+        boolean running = true;
+        while (running) {
+            printList(sauces);
+            String selectSauces = myScanner.nextLine();
+            switch (selectSauces) {
+                case "1":
+                    sandwich.setSauce(Sauce.MAYO);
+                    break;
+                case "2":
+                    sandwich.setSauce(Sauce.MUSTARD);
+                    break;
+                case "3":
+                    sandwich.setSauce(Sauce.KETCHUP);
+                    break;
+                case "4":
+                    sandwich.setSauce(Sauce.RANCH);
+                    break;
+                case "5":
+                    sandwich.setSauce(Sauce.THOUSAND_ISLANDS);
+                    break;
+                case "6":
+                    sandwich.setSauce(Sauce.VINAIGRETTE);
+                    break;
+                case "7":
+                    sandwich.setSauce(Sauce.AU_JUS);
+                    break;
+                case "8":
+                    sandwich.setSauce(Sauce.SIDE_OF_SAUCE);
+                    break;
+                case "9":
+                    running = false;
+                default:
+                    System.err.println("Invalid Input please try again!❌");
+            }
         }
+
     }
 
     public void printList(ArrayList<String> items) {
