@@ -62,54 +62,51 @@ public class UserInterface {
                     4) Checkout 📠
                     5) Cancel Order ❌
                     """);
-            try {
-                int userInput1 = Integer.parseInt(myScanner.nextLine());
-                switch (userInput1) {
-                    case 1:
-                        addingSandwich();
+            String userInput1 = myScanner.nextLine();
+            switch (userInput1) {
+                case "1":
+                    addingSandwich();
+                    break;
+                case "2":
+                    addingDrink();
+                    break;
+                case "3":
+                    addingChips();
+                    break;
+                case "4":
+                    //Verifying that the order has at least one item in it
+                    if (currentOrder.getTotal() == 0) {
+                        System.err.println("You must add at least one item from our menu!⚠");
                         break;
-                    case 2:
-                        addingDrink();
-                        break;
-                    case 3:
-                        addingChips();
-                        break;
-                    case 4:
-                        //Verifying that the order has at least one item in it
-                        if (currentOrder.getTotal() == 0) {
-                            System.err.println("You must add at least one item from our menu!⚠");
+                    }
+                    //Displaying the receipt before saving it to a new .txt file and then deleting it
+                    System.out.println(currentOrder.getOrderSummary());
+                    System.out.println("1) Yes, complete my order ✅");
+                    System.out.println("2) No, cancel it ❌");
+                    String confirm = myScanner.nextLine();
+                    switch (confirm) {
+                        case "1":
+                            //Saving my order to my receipt
+                            ReceiptManager receiptManager = new ReceiptManager();
+                            receiptManager.saveReceipt(currentOrder);
                             break;
-                        }
-                        //Displaying the receipt before saving it to a new .txt file and then deleting it
-                        System.out.println(currentOrder.getOrderSummary());
-                        System.out.println("1) Yes, complete my order ✅");
-                        System.out.println("2) No, cancel it ❌");
-                        int confirm = Integer.parseInt(myScanner.nextLine());
-                        switch (confirm) {
-                            case 1:
-                                //Saving my order to my receipt
-                                ReceiptManager receiptManager = new ReceiptManager();
-                                receiptManager.saveReceipt(currentOrder);
-                                break;
-                            case 2:
-                                System.out.println("\nReturning to Main Menu.....\n");
-                                break;
-                        }
-                        //Exiting the order and making a new empty order
-                        currentOrder = new Order();
-                        running = false;
-                        break;
-                    case 5:
-                        currentOrder = new Order();
-                        running = false;
-                        break;
-                    default:
-                        System.err.println("Invalid Selection please try again❌");
+                        case "2":
+                            System.out.println("\nReturning to Main Menu.....\n");
+                            break;
+                    }
+                    //Exiting the order and making a new empty order
+                    currentOrder = new Order();
+                    running = false;
+                    break;
+                case "5":
+                    currentOrder = new Order();
+                    running = false;
+                    break;
+                default:
+                    System.err.println("Invalid Selection please try again❌");
 
-                }
-            } catch (NumberFormatException nfe) {
-                System.err.println("Please ENTER a valid number.❌");
             }
+
 
         }
 
@@ -128,34 +125,33 @@ public class UserInterface {
                 2) Medium
                 3) Large
                 """);
-
-        try {
-            int drinkSizeUserSelection = Integer.parseInt(myScanner.nextLine());
-            DrinkSize drinkSize = null;
+        String drinkSizeUserSelection = myScanner.nextLine();
+        DrinkSize drinkSize = null;
+        boolean running = true;
+        while (running) {
             switch (drinkSizeUserSelection) {
-                case 1:
+                case "1":
                     drinkSize = DrinkSize.SMALL;
                     System.out.println("\nDrink was added to your Order!✅\n");
+                    running = false;
                     break;
-                case 2:
+                case "2":
                     drinkSize = DrinkSize.MEDIUM;
                     System.out.println("\nDrink was added to your Order!✅\n");
+                    running = false;
                     break;
-                case 3:
+                case "3":
                     drinkSize = DrinkSize.LARGE;
                     System.out.println("\nDrink was added to your Order!✅\n");
+                    running = false;
                     break;
-
                 default:
                     System.err.println("Invalid selection please try again!❌");
             }
-            Drink drink = new Drink(drinkSize);
-            currentOrder.addDrink(drink);
-
-
-        } catch (NumberFormatException nfe) {
-            System.err.println("Please ENTER a valid number.❌");
         }
+
+        Drink drink = new Drink(drinkSize);
+        currentOrder.addDrink(drink);
 
     }
 
@@ -394,6 +390,7 @@ public class UserInterface {
                     break;
                 case "9":
                     running = false;
+                    break;
                 default:
                     System.err.println("Invalid Input please try again!❌");
             }
