@@ -221,13 +221,29 @@ public class UserInterface {
                     }
 
                 }
-                System.out.println("""
+                boolean isToasted =  false;
+                boolean askingToasted = true;
+                while (askingToasted){
+                    System.out.println("""
                         Would you like your Sandwich toasted?
                         1) Yes✅
                         2) No ❌
                         """);
-                int toastedInput = Integer.parseInt(myScanner.nextLine());
-                boolean isToasted = toastedInput == 1;
+                }
+                String toastedInput = myScanner.nextLine();
+                switch (toastedInput){
+                    case "1":
+                        isToasted = true;
+                        askingToasted = false;
+                        break;
+                    case "2":
+                        isToasted = false;
+                        askingToasted = false;
+                        break;
+                    default:
+                        System.err.println("Invalid Input please try again!❌");
+                }
+
 
                 //Assigning values to my Sandwich, using all the user inputs
                 Sandwich sandwich = new Sandwich(sandwichSize, selectedBread, isToasted);
