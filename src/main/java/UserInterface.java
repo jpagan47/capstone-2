@@ -324,6 +324,36 @@ public class UserInterface {
                     default:
                         System.err.println("Invalid Input please try again!❌");
                 }
+                printList(sauces);
+                String selectSauces = myScanner.nextLine();
+                switch (selectSauces) {
+                    case "1":
+                        sandwich.setSauce(Sauce.MAYO);
+                        break;
+                    case "2":
+                        sandwich.setSauce(Sauce.MUSTARD);
+                        break;
+                    case "3":
+                        sandwich.setSauce(Sauce.KETCHUP);
+                        break;
+                    case "4":
+                        sandwich.setSauce(Sauce.RANCH);
+                        break;
+                    case "5":
+                        sandwich.setSauce(Sauce.THOUSAND_ISLANDS);
+                        break;
+                    case "6":
+                        sandwich.setSauce(Sauce.VINAIGRETTE);
+                        break;
+                    case "7":
+                        sandwich.setSauce(Sauce.AU_JUS);
+                        break;
+                    case "8":
+                        sandwich.setSauce(Sauce.SIDE_OF_SAUCE);
+                        break;
+                    default:
+                        System.err.println("Invalid Input please try again!❌");
+                }
 
 
             }
