@@ -96,8 +96,12 @@ public class Sandwich implements Product {
         return total;
     }
 
-    public void addRegularTopping(RegularTopping regularTopping) {
+    public boolean addRegularTopping(RegularTopping regularTopping) {
+        if(regularToppings.contains(regularTopping)){
+            return false;
+        }
         regularToppings.add(regularTopping);
+        return true;
     }
 
     public void setMeat(Meat meat) {
@@ -116,8 +120,12 @@ public class Sandwich implements Product {
         this.extraCheese = extraCheese;
     }
 
-    public void addSauce(Sauce sauce) {
+    public boolean addSauce(Sauce sauce) {
+        if (sauces.contains(sauce)){
+            return false;
+        }
         sauces.add(sauce);
+        return true;
     }
 
 }

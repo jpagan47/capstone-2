@@ -350,31 +350,31 @@ public class UserInterface {
             String selectedTopping = myScanner.nextLine();
             switch (selectedTopping) {
                 case "1":
-                    sandwich.addRegularTopping(RegularTopping.LETTUCE);
+                    printSelectionMessage(sandwich.addRegularTopping(RegularTopping.LETTUCE));
                     break;
                 case "2":
-                    sandwich.addRegularTopping(RegularTopping.PEPPERS);
+                    printSelectionMessage(sandwich.addRegularTopping(RegularTopping.PEPPERS));
                     break;
                 case "3":
-                    sandwich.addRegularTopping(RegularTopping.ONIONS);
+                    printSelectionMessage(sandwich.addRegularTopping(RegularTopping.ONIONS));
                     break;
                 case "4":
-                    sandwich.addRegularTopping(RegularTopping.TOMATOES);
+                    printSelectionMessage(sandwich.addRegularTopping(RegularTopping.TOMATOES));
                     break;
                 case "5":
-                    sandwich.addRegularTopping(RegularTopping.JALAPENOS);
+                    printSelectionMessage(sandwich.addRegularTopping(RegularTopping.JALAPENOS));
                     break;
                 case "6":
-                    sandwich.addRegularTopping(RegularTopping.CUCUMBERS);
+                    printSelectionMessage(sandwich.addRegularTopping(RegularTopping.CUCUMBERS));
                     break;
                 case "7":
-                    sandwich.addRegularTopping(RegularTopping.PICKLES);
+                    printSelectionMessage(sandwich.addRegularTopping(RegularTopping.PICKLES));
                     break;
                 case "8":
-                    sandwich.addRegularTopping(RegularTopping.GUACAMOLE);
+                    printSelectionMessage(sandwich.addRegularTopping(RegularTopping.GUACAMOLE));
                     break;
                 case "9":
-                    sandwich.addRegularTopping(RegularTopping.MUSHROOMS);
+                    printSelectionMessage(sandwich.addRegularTopping(RegularTopping.MUSHROOMS));
                     break;
                 case "10":
                     running = false;
@@ -398,28 +398,28 @@ public class UserInterface {
             String selectSauces = myScanner.nextLine();
             switch (selectSauces) {
                 case "1":
-                    sandwich.addSauce(Sauce.MAYO);
+                    printSelectionMessage(sandwich.addSauce(Sauce.MAYO));
                     break;
                 case "2":
-                    sandwich.addSauce(Sauce.MUSTARD);
+                    printSelectionMessage(sandwich.addSauce(Sauce.MUSTARD));
                     break;
                 case "3":
-                    sandwich.addSauce(Sauce.KETCHUP);
+                    printSelectionMessage(sandwich.addSauce(Sauce.KETCHUP));
                     break;
                 case "4":
-                    sandwich.addSauce(Sauce.RANCH);
+                    printSelectionMessage(sandwich.addSauce(Sauce.RANCH));
                     break;
                 case "5":
-                    sandwich.addSauce(Sauce.THOUSAND_ISLANDS);
+                    printSelectionMessage(sandwich.addSauce(Sauce.THOUSAND_ISLANDS));
                     break;
                 case "6":
-                    sandwich.addSauce(Sauce.VINAIGRETTE);
+                    printSelectionMessage(sandwich.addSauce(Sauce.VINAIGRETTE));
                     break;
                 case "7":
-                    sandwich.addSauce(Sauce.AU_JUS);
+                    printSelectionMessage(sandwich.addSauce(Sauce.AU_JUS));
                     break;
                 case "8":
-                    sandwich.addSauce(Sauce.SIDE_OF_SAUCE);
+                    printSelectionMessage(sandwich.addSauce(Sauce.SIDE_OF_SAUCE));
                     break;
                 case "9":
                     running = false;
@@ -430,7 +430,16 @@ public class UserInterface {
         }
 
     }
-
+    //Helper Method to check if user in inputting the same value more than once
+    private void printSelectionMessage(boolean added){
+        if (added){
+            System.out.println( "Added✅");
+        }
+        else {
+            System.err.println("You already added this"  );
+        }
+    }
+    //Helper method to ask the user if the would like to add Extra portion
     private boolean askForExtra() {
         System.out.println("""
                 Would you like Extra ?
@@ -441,7 +450,7 @@ public class UserInterface {
         String userInput = myScanner.nextLine();
         return userInput.equals("1");
     }
-
+    //Helper Method to print my Array list of items, loops one by one
     public void printList(ArrayList<String> items) {
         for (int i = 0; i < items.size(); i++) {
             System.out.println((i + 1) + ")" + items.get(i));
@@ -449,7 +458,7 @@ public class UserInterface {
         }
 
     }
-
+    //Proper Exit screen
     public void exitScreen() {
         System.out.println("""
                             ✰✰✰✰✰✰✰✰
