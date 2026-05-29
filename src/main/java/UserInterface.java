@@ -247,7 +247,8 @@ public class UserInterface {
                 addingRegToppings(sandwich);
                 addingSauces(sandwich);
                 currentOrder.addSandwich(sandwich);
-
+                running = false;
+                System.out.println("\n Sandwich was added to your order! \n");
             }
         }
     }

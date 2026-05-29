@@ -4,6 +4,13 @@ public class Topping {
     private boolean premium;
     private boolean extra;
 
+    public Topping(String name, ToppingCategory category, boolean premium, boolean extra) {
+        this.name = name;
+        this.category = category;
+        this.premium = premium;
+        this.extra = extra;
+    }
+
     @Override
     public String toString() {
         return "Topping{" +
@@ -12,13 +19,6 @@ public class Topping {
                 ", premium=" + premium +
                 ", extra=" + extra +
                 '}';
-    }
-
-    public Topping(String name, ToppingCategory category, boolean premium, boolean extra) {
-        this.name = name;
-        this.category = category;
-        this.premium = premium;
-        this.extra = extra;
     }
 
     public String getName() {

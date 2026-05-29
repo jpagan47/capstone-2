@@ -5,7 +5,40 @@ public class Sandwich implements Product {
     private Meat meat;
     private boolean extraMeat;
     private Cheese cheese;
+    private boolean extraCheese;
+    private final BreadType breadType;
+    private final boolean toasted;
     private Sauce sauce;
+    //Store all my toppings in this list
+    private ArrayList<RegularTopping> regularToppings;
+
+    public Sandwich(SandwichSize size, BreadType breadType, boolean toasted) {
+        this.size = size;
+        this.breadType = breadType;
+        this.toasted = toasted;
+        this.regularToppings = new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        String sandwichInfo = "Sandwich\n" +
+                "Size: " + size + " inches" + "\n" +
+                "Bread Type: " + breadType + "\n" +
+                "Toasted: " + toasted + "\n";
+        sandwichInfo += "\n Toppings: \n";
+
+        for (RegularTopping topping : regularToppings) {
+            sandwichInfo += "- " + topping + "\n";
+        }
+        return sandwichInfo;
+    }
+    public void addRegularTopping(RegularTopping regularTopping){
+        regularToppings.add(regularTopping);
+    }
+
+    public ArrayList<RegularTopping> getToppings(){
+        return regularToppings;
+    }
 
     public Sauce getSauce() {
         return sauce;
@@ -15,27 +48,15 @@ public class Sandwich implements Product {
         this.sauce = sauce;
     }
 
-    public RegularTopping getRegularTopping() {
-        return regularTopping;
-    }
-
-    public void setRegularTopping(RegularTopping regularTopping) {
-        this.regularTopping = regularTopping;
-    }
-
-    private RegularTopping regularTopping;
-    private boolean extraCheese;
-
-    private ArrayList<Topping> toppings;
-
-    public void addTopping(Topping topping) {
-        if(this.toppings.contains(topping)) {
+    public void addTopping(RegularTopping regularTopping) {
+        if (this.regularToppings.contains(regularTopping)) {
             return;
         }
+        this.regularToppings.add(regularTopping);
     }
 
-    public boolean hasTopping(Topping topping) {
-        return this.toppings.contains(topping);
+    public boolean hasTopping(RegularTopping regularTopping) {
+        return this.regularToppings.contains(regularTopping);
     }
 
     public void setMeat(Meat meat) {
@@ -54,36 +75,6 @@ public class Sandwich implements Product {
         this.extraCheese = extraCheese;
     }
 
-    private final BreadType breadType;
-    private final boolean toasted;
-
-//    private final ArrayList<String> toppings;
-
-    @Override
-    public String toString() {
-        String sanwichInfo = "Sandwich\n" +
-                "Size: " + size +" inches" +"\n" +
-                "Bread Type: " + breadType + "\n" +
-                "Toasted: " + toasted + "\n";
-        sanwichInfo += "\n Toppings: \n";
-        //todo
-//        for (Topping topping : toppings) {
-//            sanwichInfo += "-" + topping.getName() + "\n";
-//        }
-        return sanwichInfo;
-    }
-
-    public Sandwich(SandwichSize size, BreadType breadType, boolean toasted) {
-        this.size = size;
-        this.breadType = breadType;
-        this.toasted = toasted;
-        this.toppings = new ArrayList<>();
-    }
-
-//    public void addTopping(String topping) {
-//        toppings.add(topping);
-//    }
-
     @Override
     public double getTotal() {
         double total = 0;
@@ -92,57 +83,33 @@ public class Sandwich implements Product {
             case EIGHT -> total = 7.00;
             case TWELVE -> total = 8.50;
         }
-
-        if (this.meat != null) {
+        if (meat != null) {
             switch (size) {
-                case FOUR -> total += 1;
-                case EIGHT -> total += 2;
-                case TWELVE -> total += 3;
+                case FOUR -> total += 1.00;
+                case EIGHT -> total += 2.00;
+                case TWELVE -> total += 3.00;
             }
-            if(this.extraMeat) {
+            if (extraMeat) {
                 switch (size) {
-                    case FOUR -> total += .5;
-                    case EIGHT -> total += .75;
-                    case TWELVE -> total += 1;
+                    case FOUR -> total += 0.50;
+                    case EIGHT -> total += 0.75;
+                    case TWELVE -> total += 1.00;
                 }
             }
         }
-
-
-        for (Topping topping : toppings) {
-            if (topping.isPremium()) {
-                if (topping.getCategory() == ToppingCategory.MEAT) {
-                    switch (size) {
-                        case FOUR -> total += 1;
-                        case EIGHT -> total += 2;
-                        case TWELVE -> total += 3;
-                    }
-                }
-                if (topping.getCategory() == ToppingCategory.CHEESE) {
-                    switch (size) {
-                        case FOUR -> total += .75;
-                        case EIGHT -> total += 1.50;
-                        case TWELVE -> total += 2.25;
-                    }
+        if (cheese != null) {
+            switch (size) {
+                case FOUR -> total += 0.75;
+                case EIGHT -> total += 1.50;
+                case TWELVE -> total += 2.25;
+            }
+            if (extraCheese) {
+                switch (size) {
+                    case FOUR -> total += 0.30;
+                    case EIGHT -> total += 0.60;
+                    case TWELVE -> total += 0.90;
                 }
             }
-            if (topping.isExtra()) {
-                if (topping.getCategory() == ToppingCategory.CHEESE) {
-                    switch (size) {
-                        case FOUR -> total += .30;
-                        case EIGHT -> total += .60;
-                        case TWELVE -> total += .90;
-                    }
-                }
-                if (topping.getCategory() == ToppingCategory.MEAT) {
-                    switch (size) {
-                        case FOUR -> total += .50;
-                        case EIGHT -> total += 1.00;
-                        case TWELVE -> total += 1.50;
-                    }
-                }
-            }
-
         }
         return total;
     }
