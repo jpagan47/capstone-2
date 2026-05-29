@@ -266,26 +266,32 @@ public class UserInterface {
             switch (selectedMeat) {
                 case "1":
                     sandwich.setMeat(Meat.Steak);
+                    sandwich.setExtraMeat(askForExtra());
                     running = false;
                     break;
                 case "2":
                     sandwich.setMeat(Meat.Ham);
+                    sandwich.setExtraMeat(askForExtra());
                     running = false;
                     break;
                 case "3":
                     sandwich.setMeat(Meat.Salami);
+                    sandwich.setExtraMeat(askForExtra());
                     running = false;
                     break;
                 case "4":
                     sandwich.setMeat(Meat.Roast_Beef);
+                    sandwich.setExtraMeat(askForExtra());
                     running = false;
                     break;
                 case "5":
                     sandwich.setMeat(Meat.Chicken);
+                    sandwich.setExtraMeat(askForExtra());
                     running = false;
                     break;
                 case "6":
                     sandwich.setMeat(Meat.Bacon);
+                    sandwich.setExtraMeat(askForExtra());
                     running = false;
                     break;
                 case "7":
@@ -425,6 +431,16 @@ public class UserInterface {
             }
         }
 
+    }
+    private boolean askForExtra (){
+        System.out.println("""
+                Would you like Extra ?
+                1) Yes
+                2) No
+                
+                """);
+        String userInput = myScanner.nextLine();
+        return userInput.equals("1");
     }
 
     public void printList(ArrayList<String> items) {

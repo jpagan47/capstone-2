@@ -25,6 +25,21 @@ public class Sandwich implements Product {
                 "Size: " + size + " inches" + "\n" +
                 "Bread Type: " + breadType + "\n" +
                 "Toasted: " + toasted + "\n";
+        if (meat != null) {
+            sandwichInfo += "Meat:" + meat + "\n";
+        }
+        if (extraMeat) {
+            sandwichInfo += "Extra Meat: Yes/no";
+        }
+        if (cheese != null) {
+            sandwichInfo += "Cheese" + cheese + "\n";
+        }
+        if (extraMeat) {
+            sandwichInfo += "Extra Cheese: Yes/no";
+        }
+        if (sauce != null) {
+            sandwichInfo += "Sauce: " + sauce + "\n";
+        }
         sandwichInfo += "\n Toppings: \n";
 
         for (RegularTopping topping : regularToppings) {
@@ -32,11 +47,12 @@ public class Sandwich implements Product {
         }
         return sandwichInfo;
     }
-    public void addRegularTopping(RegularTopping regularTopping){
+
+    public void addRegularTopping(RegularTopping regularTopping) {
         regularToppings.add(regularTopping);
     }
 
-    public ArrayList<RegularTopping> getToppings(){
+    public ArrayList<RegularTopping> getToppings() {
         return regularToppings;
     }
 
