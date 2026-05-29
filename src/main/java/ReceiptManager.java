@@ -21,6 +21,7 @@ public class ReceiptManager {
     }
 
     private String generateFileName() {
+        //Using DTF to get today's date by the requested format and making that the file name
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
         return "src/receipts/" + LocalDateTime.now().format(formatter) + ".txt";
     }

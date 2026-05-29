@@ -1,9 +1,10 @@
 public class Topping {
-    private String name;
-    private ToppingCategory category;
-    private boolean premium;
-    private boolean extra;
+    private final String name;
+    private final ToppingCategory category;
+    private final boolean premium;
+    private final boolean extra;
 
+    //CONSTRUCTOR
     public Topping(String name, ToppingCategory category, boolean premium, boolean extra) {
         this.name = name;
         this.category = category;
@@ -20,20 +21,6 @@ public class Topping {
                 ", extra=" + extra +
                 '}';
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public ToppingCategory getCategory() {
-        return category;
-    }
-
-    public boolean isPremium() {
-        return premium;
-    }
-
-    public boolean isExtra() {
-        return extra;
-    }
 }
+
+

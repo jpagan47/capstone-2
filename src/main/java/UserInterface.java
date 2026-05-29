@@ -10,10 +10,6 @@ public class UserInterface {
     private final ArrayList<String> regularToppings = new ArrayList<>(Arrays.asList("Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapeños", "Cucumbers", "Pickles", "Guacamole", "Mushrooms"));
     private final ArrayList<String> sauces = new ArrayList<>(Arrays.asList("Mayo", "Mustard", "ketchup", "Ranch", "Thousand Islands", "Vinaigrette", "Au jus", "Sauce on the side"));
 
-    public UserInterface() {
-
-    }
-
     public void display() {
         homeScreen();
     }
@@ -30,18 +26,18 @@ public class UserInterface {
                                   🥐🍰🧺☕️
                     """);
 
-                String  userInput = myScanner.nextLine();
-                switch (userInput) {
-                    case "1":
-                        currentOrder = new Order();
-                        orderScreen();
-                        break;
-                    case "0":
-                        running = false;
-                        break;
-                    default:
-                        System.err.println("❌Invalid entry please try again❌ ");
-                }
+            String userInput = myScanner.nextLine();
+            switch (userInput) {
+                case "1":
+                    currentOrder = new Order();
+                    orderScreen();
+                    break;
+                case "0":
+                    running = false;
+                    break;
+                default:
+                    System.err.println("❌Invalid entry please try again❌ ");
+            }
 
         }
 
@@ -114,16 +110,15 @@ public class UserInterface {
     }
 
     private void addingDrink() {
-
         DrinkSize drinkSize = null;
         boolean running = true;
         while (running) {
             System.out.println("""
-                What size drink would you like ?
-                1) Small
-                2) Medium
-                3) Large
-                """);
+                    What size drink would you like ?
+                    1) Small
+                    2) Medium
+                    3) Large
+                    """);
             String drinkSizeUserSelection = myScanner.nextLine();
             switch (drinkSizeUserSelection) {
                 case "1":
@@ -142,14 +137,13 @@ public class UserInterface {
                     System.err.println("Invalid selection please try again!❌");
             }
         }
-
+        //Making a "Drink" object then passing the size value to it
         Drink drink = new Drink(drinkSize);
         currentOrder.addDrink(drink);
         System.out.println("\nDrink was added to your Order!✅\n");
     }
 
     private void addingSandwich() {
-
         {
             boolean running = true;
             while (running) {
@@ -184,8 +178,8 @@ public class UserInterface {
                         System.err.println("Invalid Input please try again!❌");
                         continue;
                 }
+                //Initializing SandwichSize so I can assign a value ot it in the switch/case
                 SandwichSize sandwichSize = null;
-
                 running = true;
                 while (running) {
                     System.out.println("""
@@ -215,7 +209,8 @@ public class UserInterface {
                     }
 
                 }
-                boolean isToasted =  false;
+
+                boolean isToasted = false;
                 boolean askingToasted = true;
                 while (askingToasted) {
                     System.out.println("""
@@ -238,7 +233,6 @@ public class UserInterface {
                             System.err.println("Invalid Input please try again!❌");
                     }
                 }
-
                 //Assigning values to my Sandwich, using all the user inputs
                 Sandwich sandwich = new Sandwich(sandwichSize, selectedBread, isToasted);
 
@@ -336,7 +330,7 @@ public class UserInterface {
                     running = false;
                     break;
                 case "5":
-                        running = false;
+                    running = false;
                     break;
                 default:
                     System.err.println("Invalid Input please try again!❌");
@@ -436,7 +430,8 @@ public class UserInterface {
         }
 
     }
-    private boolean askForExtra (){
+
+    private boolean askForExtra() {
         System.out.println("""
                 Would you like Extra ?
                 1) Yes

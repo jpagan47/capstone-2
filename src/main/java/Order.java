@@ -56,15 +56,4 @@ public class Order {
         chips.add(chip);
     }
 
-    public ArrayList<Sandwich> getSandwiches() {
-        return sandwiches;
-    }
-
-    public ArrayList<Drink> getDrinks() {
-        return drinks;
-    }
-
-    public ArrayList<Chips> getChips() {
-        return chips;
-    }
 }

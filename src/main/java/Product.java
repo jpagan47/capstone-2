@@ -1,3 +1,3 @@
 public interface Product {
-    public double getTotal();
+     double getTotal();
 }
