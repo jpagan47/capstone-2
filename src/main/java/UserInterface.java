@@ -304,7 +304,9 @@ public class UserInterface {
         boolean running = true;
         while (running) {
             printList(cheeses);
+            System.out.println("5) NO Cheese";
             String selectedCheese = myScanner.nextLine();
+
             switch (selectedCheese) {
                 case "1":
                     sandwich.setCheese(Cheese.American);
@@ -378,6 +380,7 @@ public class UserInterface {
         boolean running = true;
         while (running) {
             printList(sauces);
+            System.out.println("9) Done");
             String selectSauces = myScanner.nextLine();
             switch (selectSauces) {
                 case "1":
