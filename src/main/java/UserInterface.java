@@ -317,18 +317,22 @@ public class UserInterface {
             switch (selectedCheese) {
                 case "1":
                     sandwich.setCheese(Cheese.American);
+                    sandwich.setExtraCheese(askForExtra());
                     running = false;
                     break;
                 case "2":
                     sandwich.setCheese(Cheese.Provolone);
+                    sandwich.setExtraCheese(askForExtra());
                     running = false;
                     break;
                 case "3":
                     sandwich.setCheese(Cheese.Cheddar);
+                    sandwich.setExtraCheese(askForExtra());
                     running = false;
                     break;
                 case "4":
                     sandwich.setCheese(Cheese.Swiss);
+                    sandwich.setExtraCheese(askForExtra());
                     running = false;
                     break;
                 case "5":
@@ -400,28 +404,28 @@ public class UserInterface {
             String selectSauces = myScanner.nextLine();
             switch (selectSauces) {
                 case "1":
-                    sandwich.setSauce(Sauce.MAYO);
+                    sandwich.addSauce(Sauce.MAYO);
                     break;
                 case "2":
-                    sandwich.setSauce(Sauce.MUSTARD);
+                    sandwich.addSauce(Sauce.MUSTARD);
                     break;
                 case "3":
-                    sandwich.setSauce(Sauce.KETCHUP);
+                    sandwich.addSauce(Sauce.KETCHUP);
                     break;
                 case "4":
-                    sandwich.setSauce(Sauce.RANCH);
+                    sandwich.addSauce(Sauce.RANCH);
                     break;
                 case "5":
-                    sandwich.setSauce(Sauce.THOUSAND_ISLANDS);
+                    sandwich.addSauce(Sauce.THOUSAND_ISLANDS);
                     break;
                 case "6":
-                    sandwich.setSauce(Sauce.VINAIGRETTE);
+                    sandwich.addSauce(Sauce.VINAIGRETTE);
                     break;
                 case "7":
-                    sandwich.setSauce(Sauce.AU_JUS);
+                    sandwich.addSauce(Sauce.AU_JUS);
                     break;
                 case "8":
-                    sandwich.setSauce(Sauce.SIDE_OF_SAUCE);
+                    sandwich.addSauce(Sauce.SIDE_OF_SAUCE);
                     break;
                 case "9":
                     running = false;

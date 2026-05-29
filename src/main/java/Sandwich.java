@@ -8,6 +8,8 @@ public class Sandwich implements Product {
     private boolean extraCheese;
     private final BreadType breadType;
     private final boolean toasted;
+    //Storing all my sauces in this list
+    private ArrayList<Sauce> sauces = new ArrayList<>();
     private Sauce sauce;
     //Store all my toppings in this list
     private ArrayList<RegularTopping> regularToppings;
@@ -29,68 +31,30 @@ public class Sandwich implements Product {
             sandwichInfo += "Meat:" + meat + "\n";
         }
         if (extraMeat) {
-            sandwichInfo += "Extra Meat: Yes/no";
+            sandwichInfo += "Extra Meat: Yes\n";
         }
         if (cheese != null) {
-            sandwichInfo += "Cheese" + cheese + "\n";
+            sandwichInfo += "Cheese: " + cheese + "\n";
         }
         if (extraMeat) {
-            sandwichInfo += "Extra Cheese: Yes/no";
+            sandwichInfo += "Extra Cheese: Yes\n";
         }
         if (sauce != null) {
-            sandwichInfo += "Sauce: " + sauce + "\n";
+            sandwichInfo += "Sauce: \n" + sauce ;
         }
-        sandwichInfo += "\n Toppings: \n";
+        sandwichInfo += "\nToppings: \n";
 
         for (RegularTopping topping : regularToppings) {
             sandwichInfo += "- " + topping + "\n";
         }
+        if (!sauces.isEmpty()){
+            sandwichInfo += "Sauces:\n";
+            for (Sauce sauce: sauces){
+                sandwichInfo += "- " + sauce + "\n";
+            }
+        }
         return sandwichInfo;
     }
-
-    public void addRegularTopping(RegularTopping regularTopping) {
-        regularToppings.add(regularTopping);
-    }
-
-    public ArrayList<RegularTopping> getToppings() {
-        return regularToppings;
-    }
-
-    public Sauce getSauce() {
-        return sauce;
-    }
-
-    public void setSauce(Sauce sauce) {
-        this.sauce = sauce;
-    }
-
-    public void addTopping(RegularTopping regularTopping) {
-        if (this.regularToppings.contains(regularTopping)) {
-            return;
-        }
-        this.regularToppings.add(regularTopping);
-    }
-
-    public boolean hasTopping(RegularTopping regularTopping) {
-        return this.regularToppings.contains(regularTopping);
-    }
-
-    public void setMeat(Meat meat) {
-        this.meat = meat;
-    }
-
-    public void setExtraMeat(boolean extraMeat) {
-        this.extraMeat = extraMeat;
-    }
-
-    public void setCheese(Cheese cheese) {
-        this.cheese = cheese;
-    }
-
-    public void setExtraCheese(boolean extraCheese) {
-        this.extraCheese = extraCheese;
-    }
-
     @Override
     public double getTotal() {
         double total = 0;
@@ -129,6 +93,47 @@ public class Sandwich implements Product {
         }
         return total;
     }
+    public void addRegularTopping(RegularTopping regularTopping) {
+        regularToppings.add(regularTopping);
+    }
+
+    public ArrayList<RegularTopping> getToppings() {
+        return regularToppings;
+    }
+
+
+    public void addTopping(RegularTopping regularTopping) {
+        if (this.regularToppings.contains(regularTopping)) {
+            return;
+        }
+        this.regularToppings.add(regularTopping);
+    }
+
+    public boolean hasTopping(RegularTopping regularTopping) {
+        return this.regularToppings.contains(regularTopping);
+    }
+
+    public void setMeat(Meat meat) {
+        this.meat = meat;
+    }
+
+    public void setExtraMeat(boolean extraMeat) {
+        this.extraMeat = extraMeat;
+    }
+
+    public void setCheese(Cheese cheese) {
+        this.cheese = cheese;
+    }
+
+    public void setExtraCheese(boolean extraCheese) {
+        this.extraCheese = extraCheese;
+    }
+
+    public void addSauce(Sauce sauce){
+        sauces.add(sauce);
+    }
+
+
 }
 
 
