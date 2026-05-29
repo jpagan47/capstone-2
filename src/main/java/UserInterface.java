@@ -257,8 +257,11 @@ public class UserInterface {
         //Printing out my List of Meats one by one
         boolean running = true;
         while (running) {
+            System.out.println("\n");
+            System.out.println("Please select Base Protein:");
             printList(meats);
             System.out.println("7)No Meat");
+            System.out.println("\n");
             String selectedMeat = myScanner.nextLine();
             switch (selectedMeat) {
                 case "1":
@@ -298,8 +301,11 @@ public class UserInterface {
     private void addingCheese(Sandwich sandwich) {
         boolean running = true;
         while (running) {
+            System.out.println("\n");
+            System.out.println("Please select Cheese:");
             printList(cheeses);
             System.out.println("5) NO Cheese");
+            System.out.println("\n");
             String selectedCheese = myScanner.nextLine();
 
             switch (selectedCheese) {
@@ -332,8 +338,11 @@ public class UserInterface {
     private void addingRegToppings(Sandwich sandwich) {
         boolean running = true;
         while (running) {
+            System.out.println("\n");
+            System.out.println("Please select your Toppings: ");
             printList(regularToppings);
             System.out.println("10)Done");
+            System.out.println("\n");
             String selectedTopping = myScanner.nextLine();
             switch (selectedTopping) {
                 case "1":
@@ -377,8 +386,11 @@ public class UserInterface {
     private void addingSauces(Sandwich sandwich) {
         boolean running = true;
         while (running) {
+            System.out.println("\n");
+            System.out.println("Please select your Sauces: ");
             printList(sauces);
-            System.out.println("9) Done");
+            System.out.println("9)Done");
+            System.out.println("\n");
             String selectSauces = myScanner.nextLine();
             switch (selectSauces) {
                 case "1":
