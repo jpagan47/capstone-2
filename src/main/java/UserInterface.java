@@ -1,3 +1,7 @@
+import EnumFolder.BreadType;
+import EnumFolder.DrinkSize;
+import EnumFolder.RegularTopping;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -53,6 +57,7 @@ public class UserInterface {
                     3) Add Chips 🍟
                     4) Checkout 📠
                     5) Cancel Order ❌
+                    6) Add Signature Sandwich
                     """);
             String userInput1 = myScanner.nextLine();
             switch (userInput1) {
@@ -93,6 +98,9 @@ public class UserInterface {
                 case "5":
                     currentOrder = new Order();
                     running = false;
+                    break;
+                case "6":
+                    addingSignatureSandwich();
                     break;
                 default:
                     System.err.println("Invalid Selection please try again❌");
@@ -430,15 +438,16 @@ public class UserInterface {
         }
 
     }
+
     //Helper Method to check if user in inputting the same value more than once
-    private void printSelectionMessage(boolean added){
-        if (added){
-            System.out.println( "Added✅");
-        }
-        else {
-            System.err.println("You already added this"  );
+    private void printSelectionMessage(boolean added) {
+        if (added) {
+            System.out.println("Added✅");
+        } else {
+            System.err.println("You already added this");
         }
     }
+
     //Helper method to ask the user if the would like to add Extra portion
     private boolean askForExtra() {
         System.out.println("""
@@ -450,6 +459,7 @@ public class UserInterface {
         String userInput = myScanner.nextLine();
         return userInput.equals("1");
     }
+
     //Helper Method to print my Array list of items, loops one by one
     public void printList(ArrayList<String> items) {
         for (int i = 0; i < items.size(); i++) {
@@ -457,6 +467,84 @@ public class UserInterface {
 
         }
 
+    }
+    //BONUS pre-defined sandwiches for the user ot select
+    private void addingSignatureSandwich() {
+        System.out.println("""
+           Which signature sandwich would you like?
+           1) BLT
+           2) Philly Cheese Steak
+           3) Chicken Bacon Ranch
+           4) Veggie Delight
+           5) Italian Sub
+           6) Spicy Steak Supreme
+           """);
+        String choice = myScanner.nextLine();
+        Sandwich sandwich = null;
+        switch (choice) {
+            case "1":
+                // BLT
+                sandwich = new Sandwich(SandwichSize.EIGHT, BreadType.WHITE, true);
+                sandwich.setMeat(Meat.Bacon);
+                sandwich.setCheese(Cheese.Cheddar);
+                sandwich.addRegularTopping(RegularTopping.LETTUCE);
+                sandwich.addRegularTopping(RegularTopping.TOMATOES);
+                sandwich.addSauce(Sauce.RANCH);
+                break;
+            case "2":
+                // Philly Cheese Steak
+                sandwich = new Sandwich(SandwichSize.EIGHT, BreadType.WHITE, true);
+                sandwich.setMeat(Meat.Steak);
+                sandwich.setCheese(Cheese.American);
+                sandwich.addRegularTopping(RegularTopping.PEPPERS);
+                sandwich.addSauce(Sauce.MAYO);
+                break;
+            case "3":
+                // Chicken Bacon Ranch
+                sandwich = new Sandwich(SandwichSize.EIGHT, BreadType.WHITE, true);
+                sandwich.setMeat(Meat.Chicken);
+                sandwich.setCheese(Cheese.Provolone);
+                sandwich.addRegularTopping(RegularTopping.LETTUCE);
+                sandwich.addRegularTopping(RegularTopping.TOMATOES);
+                sandwich.addSauce(Sauce.RANCH);
+                break;
+            case "4":
+                // Veggie Delight
+                sandwich = new Sandwich(SandwichSize.EIGHT, BreadType.WHEAT, false);
+                sandwich.setCheese(Cheese.Swiss);
+                sandwich.addRegularTopping(RegularTopping.LETTUCE);
+                sandwich.addRegularTopping(RegularTopping.TOMATOES);
+                sandwich.addRegularTopping(RegularTopping.CUCUMBERS);
+                sandwich.addRegularTopping(RegularTopping.PEPPERS);
+                sandwich.addRegularTopping(RegularTopping.ONIONS);
+                sandwich.addSauce(Sauce.VINAIGRETTE);
+                break;
+            case "5":
+                // Italian Sub
+                sandwich = new Sandwich(SandwichSize.TWELVE, BreadType.WHITE, true);
+                sandwich.setMeat(Meat.Salami);
+                sandwich.setCheese(Cheese.Provolone);
+                sandwich.addRegularTopping(RegularTopping.LETTUCE);
+                sandwich.addRegularTopping(RegularTopping.ONIONS);
+                sandwich.addRegularTopping(RegularTopping.PICKLES);
+                sandwich.addSauce(Sauce.VINAIGRETTE);
+                break;
+            case "6":
+                // Spicy Steak Supreme
+                sandwich = new Sandwich(SandwichSize.TWELVE, BreadType.RYE, true);
+                sandwich.setMeat(Meat.Steak);
+                sandwich.setCheese(Cheese.Cheddar);
+                sandwich.addRegularTopping(RegularTopping.JALAPENOS);
+                sandwich.addRegularTopping(RegularTopping.PEPPERS);
+                sandwich.addRegularTopping(RegularTopping.ONIONS);
+                sandwich.addSauce(Sauce.MAYO);
+                break;
+            default:
+                System.err.println("Invalid Input please try again!❌");
+                return;
+        }
+        currentOrder.addSandwich(sandwich);
+        System.out.println("Signature sandwich added to your order!✅");
     }
     //Proper Exit screen
     public void exitScreen() {
