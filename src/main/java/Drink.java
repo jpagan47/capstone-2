@@ -1,3 +1,5 @@
+import EnumFolder.DrinkSize;
+
 public class Drink implements Product {
     private final DrinkSize drinkSize;
 

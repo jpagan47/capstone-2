@@ -1,3 +1,6 @@
+import EnumFolder.BreadType;
+import EnumFolder.RegularTopping;
+
 import java.util.ArrayList;
 
 public class Sandwich implements Product {

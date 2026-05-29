@@ -1,3 +1,5 @@
+package EnumFolder;
+
 public enum BreadType {
     WHITE,
     WHEAT,

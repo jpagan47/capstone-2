@@ -1,6 +1,0 @@
-
-===Receipt===
--A DrinkSize: MEDIUM
--A bag of Chips
-
-TOTAL: $4.0

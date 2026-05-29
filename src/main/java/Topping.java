@@ -1,3 +1,5 @@
+import EnumFolder.ToppingCategory;
+
 public class Topping {
     private final String name;
     private final ToppingCategory category;
