@@ -324,6 +324,9 @@ public class UserInterface {
                     sandwich.setCheese(Cheese.Swiss);
                     running = false;
                     break;
+                case "5":
+                        running = false;
+                    break;
                 default:
                     System.err.println("Invalid Input please try again!❌");
             }
