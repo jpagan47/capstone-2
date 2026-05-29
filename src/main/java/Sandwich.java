@@ -50,7 +50,7 @@ public class Sandwich implements Product {
         if (!sauces.isEmpty()){
             sandwichInfo += "Sauces:\n";
             for (Sauce sauce: sauces){
-                sandwichInfo += "- " + sauce + "\n";
+                sandwichInfo += "- " + sauce.toString().replace("_"," ") + "\n";
             }
         }
         return sandwichInfo;
