@@ -304,7 +304,7 @@ public class UserInterface {
         boolean running = true;
         while (running) {
             printList(cheeses);
-            System.out.println("5) NO Cheese";
+            System.out.println("5) NO Cheese");
             String selectedCheese = myScanner.nextLine();
 
             switch (selectedCheese) {
@@ -323,6 +323,9 @@ public class UserInterface {
                 case "4":
                     sandwich.setCheese(Cheese.Swiss);
                     running = false;
+                    break;
+                case "5":
+                        running = false;
                     break;
                 default:
                     System.err.println("Invalid Input please try again!❌");
