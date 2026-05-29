@@ -29,23 +29,19 @@ public class UserInterface {
                                   0) Exit
                                   🥐🍰🧺☕️
                     """);
-            try {
-                int userInput = Integer.parseInt(myScanner.nextLine());
+
+                String  userInput = myScanner.nextLine();
                 switch (userInput) {
-                    case 1:
+                    case "1":
                         currentOrder = new Order();
                         orderScreen();
                         break;
-                    case 0:
+                    case "0":
                         running = false;
                         break;
                     default:
                         System.err.println("❌Invalid entry please try again❌ ");
                 }
-            } catch (NumberFormatException nfe) {
-                System.err.println("❌Please ENTER a valid number.❌");
-
-            }
 
         }
 
@@ -118,30 +114,28 @@ public class UserInterface {
     }
 
     private void addingDrink() {
-        System.out.println("""
+
+        DrinkSize drinkSize = null;
+        boolean running = true;
+        while (running) {
+            System.out.println("""
                 What size drink would you like ?
                 1) Small
                 2) Medium
                 3) Large
                 """);
-        String drinkSizeUserSelection = myScanner.nextLine();
-        DrinkSize drinkSize = null;
-        boolean running = true;
-        while (running) {
+            String drinkSizeUserSelection = myScanner.nextLine();
             switch (drinkSizeUserSelection) {
                 case "1":
                     drinkSize = DrinkSize.SMALL;
-                    System.out.println("\nDrink was added to your Order!✅\n");
                     running = false;
                     break;
                 case "2":
                     drinkSize = DrinkSize.MEDIUM;
-                    System.out.println("\nDrink was added to your Order!✅\n");
                     running = false;
                     break;
                 case "3":
                     drinkSize = DrinkSize.LARGE;
-                    System.out.println("\nDrink was added to your Order!✅\n");
                     running = false;
                     break;
                 default:
@@ -151,7 +145,7 @@ public class UserInterface {
 
         Drink drink = new Drink(drinkSize);
         currentOrder.addDrink(drink);
-
+        System.out.println("\nDrink was added to your Order!✅\n");
     }
 
     private void addingSandwich() {
@@ -223,27 +217,27 @@ public class UserInterface {
                 }
                 boolean isToasted =  false;
                 boolean askingToasted = true;
-                while (askingToasted){
+                while (askingToasted) {
                     System.out.println("""
-                        Would you like your Sandwich toasted?
-                        1) Yes✅
-                        2) No ❌
-                        """);
-                }
-                String toastedInput = myScanner.nextLine();
-                switch (toastedInput){
-                    case "1":
-                        isToasted = true;
-                        askingToasted = false;
-                        break;
-                    case "2":
-                        isToasted = false;
-                        askingToasted = false;
-                        break;
-                    default:
-                        System.err.println("Invalid Input please try again!❌");
-                }
+                            Would you like your Sandwich toasted?
+                            1) Yes✅
+                            2) No ❌
+                            """);
 
+                    String toastedInput = myScanner.nextLine();
+                    switch (toastedInput) {
+                        case "1":
+                            isToasted = true;
+                            askingToasted = false;
+                            break;
+                        case "2":
+                            isToasted = false;
+                            askingToasted = false;
+                            break;
+                        default:
+                            System.err.println("Invalid Input please try again!❌");
+                    }
+                }
 
                 //Assigning values to my Sandwich, using all the user inputs
                 Sandwich sandwich = new Sandwich(sandwichSize, selectedBread, isToasted);
