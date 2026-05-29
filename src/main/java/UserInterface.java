@@ -337,31 +337,31 @@ public class UserInterface {
             String selectedTopping = myScanner.nextLine();
             switch (selectedTopping) {
                 case "1":
-                    sandwich.setRegularTopping(RegularTopping.LETTUCE);
+                    sandwich.addRegularTopping(RegularTopping.LETTUCE);
                     break;
                 case "2":
-                    sandwich.setRegularTopping(RegularTopping.PEPPERS);
+                    sandwich.addRegularTopping(RegularTopping.PEPPERS);
                     break;
                 case "3":
-                    sandwich.setRegularTopping(RegularTopping.ONIONS);
+                    sandwich.addRegularTopping(RegularTopping.ONIONS);
                     break;
                 case "4":
-                    sandwich.setRegularTopping(RegularTopping.TOMATOES);
+                    sandwich.addRegularTopping(RegularTopping.TOMATOES);
                     break;
                 case "5":
-                    sandwich.setRegularTopping(RegularTopping.JALAPENOS);
+                    sandwich.addRegularTopping(RegularTopping.JALAPENOS);
                     break;
                 case "6":
-                    sandwich.setRegularTopping(RegularTopping.CUCUMBERS);
+                    sandwich.addRegularTopping(RegularTopping.CUCUMBERS);
                     break;
                 case "7":
-                    sandwich.setRegularTopping(RegularTopping.PICKLES);
+                    sandwich.addRegularTopping(RegularTopping.PICKLES);
                     break;
                 case "8":
-                    sandwich.setRegularTopping(RegularTopping.GUACAMOLE);
+                    sandwich.addRegularTopping(RegularTopping.GUACAMOLE);
                     break;
                 case "9":
-                    sandwich.setRegularTopping(RegularTopping.MUSHROOMS);
+                    sandwich.addRegularTopping(RegularTopping.MUSHROOMS);
                     break;
                 case "10":
                     running = false;
